@@ -1,0 +1,23 @@
+backend:
+  branch: main
+  name: git-gateway
+collections:
+- files:
+  - fields:
+    - fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+      label: FAQs
+      name: faqs
+      widget: list
+    file: content/faq.yml
+    label: FAQ Content
+    name: faq_content
+  label: FAQ
+  name: faq
+media_folder: static/images/uploads
+public_folder: /images/uploads
