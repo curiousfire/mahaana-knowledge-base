@@ -3,7 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <title>Content Manager</title>
+
+    <!-- Load the Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
+    <!-- Tell CMS to use manual config path -->
+    <script>
+      window.CMS_MANUAL_INIT = true;
+      CMS.init({ config: "/config.yml" });
+    </script>
   </head>
   <body>
   </body>
