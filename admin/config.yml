@@ -8,6 +8,9 @@ backend:
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
+# Important security setting - only approved users can access
+publish_mode: editorial_workflow
+
 collections:
   - name: "faqs"
     label: "FAQ Items"
