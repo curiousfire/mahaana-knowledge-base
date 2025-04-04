@@ -1,0 +1,4 @@
+"scripts": {
+  "generate:faq": "node scripts/generate-faq.js",
+  "build": "npm run generate:faq && your-existing-build-command"
+}
