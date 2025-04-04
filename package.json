@@ -1,4 +1,11 @@
-"scripts": {
-  "generate:faq": "node scripts/generate-faq.js",
-  "build": "npm run generate:faq && your-existing-build-command"
+{
+  "name": "mahaana-faq-site",
+  "version": "1.0.0",
+  "scripts": {
+    "generate:faq": "node scripts/generate-faq.js",
+    "build": "npm run generate:faq && echo 'Build complete'"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  }
 }
