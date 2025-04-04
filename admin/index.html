@@ -2,17 +2,67 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
-
-    <!-- Load the Netlify CMS -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-
-    <!-- Tell CMS to use manual config path -->
-    <script>
-      window.CMS_MANUAL_INIT = true;
-      CMS.init({ config: "/config.yml" });
-    </script>
   </head>
   <body>
+    <!-- Include the Netlify CMS script as a preload -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    
+    <!-- Initialize the CMS -->
+    <script>
+      // Wait for the DOM to be fully loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        // Check if CMS is available
+        if (window.CMS) {
+          window.CMS_MANUAL_INIT = true;
+          CMS.init({
+            config: {
+              backend: {
+                name: "git-gateway",
+                branch: "main"
+              },
+              media_folder: "static/images/uploads",
+              public_folder: "/images/uploads",
+              collections: [
+                {
+                  name: "faq",
+                  label: "FAQ",
+                  files: [
+                    {
+                      name: "faq_content",
+                      label: "FAQ Content",
+                      file: "content/faq.yml",
+                      fields: [
+                        {
+                          name: "faqs",
+                          label: "FAQs",
+                          widget: "list",
+                          fields: [
+                            {
+                              name: "question",
+                              label: "Question",
+                              widget: "string"
+                            },
+                            {
+                              name: "answer",
+                              label: "Answer",
+                              widget: "text"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          });
+        } else {
+          console.error("Netlify CMS not loaded correctly");
+          document.body.innerHTML = '<div style="padding: 20px; color: red;">Error: Netlify CMS failed to load. Please check your connection and try again.</div>';
+        }
+      });
+    </script>
   </body>
 </html>
