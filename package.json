@@ -1,9 +1,8 @@
 {
-  "name": "mahaana-faq-site",
+  "name": "mahaana-knowledge-base",
   "version": "1.0.0",
   "scripts": {
-    "generate:faq": "node scripts/generate-faq.js",
-    "build": "npm run generate:faq && echo 'Build complete'"
+    "build": "node scripts/generate-faq.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.3"
