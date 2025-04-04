@@ -5,6 +5,20 @@ collections:
 - files:
   - fields:
     - fields:
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - General
+          - Account & Verification
+          - Investments & Funds
+          - Withdrawals & Deposits
+          - Returns & Profits
+          - Safety & Regulation
+          - Shariah Compliance
+          - Zakat & Tax
+          - Technology & Access
+        default: General
       - label: Question
         name: question
         widget: string
