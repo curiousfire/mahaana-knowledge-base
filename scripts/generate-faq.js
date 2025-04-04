@@ -8,6 +8,8 @@ const allFaqs = [];
 
 categories.forEach((category) => {
   const folderPath = path.join(basePath, category);
+  if (!fs.existsSync(folderPath)) return;
+
   const files = fs.readdirSync(folderPath);
 
   files.forEach((file) => {
@@ -20,6 +22,11 @@ categories.forEach((category) => {
     });
   });
 });
+
+// Ensure public folder exists
+if (!fs.existsSync("public")) {
+  fs.mkdirSync("public");
+}
 
 // Output combined FAQ JSON
 fs.writeFileSync("./public/faq.json", JSON.stringify({ faqs: allFaqs }, null, 2));
