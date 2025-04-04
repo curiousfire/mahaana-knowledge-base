@@ -1,717 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Mahaana FAQ</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #007bff;
-            --primary-dark: #0056b3;
-            --secondary: #6c757d;
-            --light-bg: #f9f9f9;
-            --border: #dee2e6;
-            --text: #333;
-            --text-light: #6c757d;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        /* Sidebar Styles */
-        .sidebar {
-            width: 280px;
-            background-color: white;
-            border-right: 1px solid var(--border);
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            overflow-y: auto;
-            z-index: 1000;
-            box-shadow: 2px 0 5px var(--shadow);
-            transition: transform 0.3s ease;
-        }
-        
-        .sidebar-header {
-            padding: 20px;
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .sidebar-header h2 {
-            margin: 0;
-            font-size: 1.2rem;
-        }
-        
-        .nav-menu {
-            padding: 10px 0;
-        }
-        
-        .nav-item {
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .nav-link {
-            display: block;
-            padding: 12px 20px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: background-color 0.2s;
-        }
-        
-        .nav-link:hover {
-            background-color: #f0f0f0;
-        }
-        
-        .nav-link.active {
-            color: var(--primary);
-            background-color: #e6f2ff;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .nav-link .toggle-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: transform 0.3s;
-        }
-        
-        .nav-link.expanded .toggle-icon {
-            transform: translateY(-50%) rotate(180deg);
-        }
-        
-        .subnav {
-            padding-left: 20px;
-            display: none;
-            background-color: #f5f5f5;
-        }
-        
-        .subnav.open {
-            display: block;
-        }
-        
-        .subnav-link {
-            display: block;
-            padding: 8px 20px;
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        
-        .subnav-link:hover {
-            color: var(--primary);
-        }
-        
-        .subnav-link.active {
-            color: var(--primary);
-            font-weight: 500;
-        }
-        
-        /* Main Content Styles */
-        .content {
-            flex: 1;
-            padding: 20px;
-            margin-left: 280px;
-            transition: margin-left 0.3s ease;
-        }
-        
-        .page-header {
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--primary);
-        }
-        
-        .page-header h1 {
-            color: var(--primary);
-            font-size: 2rem;
-        }
-        
-        .section {
-            margin-bottom: 30px;
-        }
-        
-        .section-title {
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #ccc;
-            font-size: 1.5rem;
-        }
-        
-        .faq-item {
-            margin-bottom: 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px var(--shadow);
-            overflow: hidden;
-        }
-        
-        .question {
-            padding: 15px 20px;
-            background-color: #f8f9fa;
-            font-weight: bold;
-            cursor: pointer;
-            position: relative;
-            transition: background-color 0.2s;
-        }
-        
-        .question:hover {
-            background-color: #e9ecef;
-        }
-        
-        .question::before {
-            content: "Q: ";
-            color: var(--primary);
-        }
-        
-        .question::after {
-            content: "+";
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.2rem;
-            color: var(--primary);
-            transition: transform 0.3s;
-        }
-        
-        .question.active::after {
-            content: "−";
-            transform: translateY(-50%);
-        }
-        
-        .answer {
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        
-        .answer.active {
-            padding: 15px 20px;
-            max-height: 1000px; /* Adjust as needed */
-        }
-        
-        .answer::before {
-            content: "A: ";
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        /* Mobile styles */
-        .mobile-toggle {
-            display: none;
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 1100;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-            box-shadow: 0 2px 5px var(--shadow);
-        }
-        
-        .close-sidebar {
-            display: none;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-        
-        /* Search box */
-        .search-container {
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .search-box {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        
-        .search-box:focus {
-            border-color: var(--primary);
-        }
-        
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-            box-shadow: 0 2px 5px var(--shadow);
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-        }
-        
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                width: 250px;
-            }
-            
-            .sidebar.open {
-                transform: translateX(0);
-            }
-            
-            .content {
-                margin-left: 0;
-                padding: 20px 15px;
-            }
-            
-            .mobile-toggle, .close-sidebar {
-                display: block;
-            }
-            
-            .page-header {
-                padding-top: 40px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Mahaana FAQ</title>
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #007bff;
+      --primary-dark: #0056b3;
+      --secondary: #6c757d;
+      --light-bg: #f9f9f9;
+      --border: #dee2e6;
+      --text: #333;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    
+    /* Sidebar Styles */
+    .sidebar {
+      width: 280px;
+      background-color: white;
+      border-right: 1px solid var(--border);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      overflow-y: auto;
+      z-index: 1000;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .sidebar-header {
+      padding: 20px;
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .sidebar-header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    
+    .nav-menu {
+      padding: 10px 0;
+    }
+    
+    .nav-item {
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 12px 20px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: background-color 0.2s;
+    }
+    
+    .nav-link:hover {
+      background-color: #f0f0f0;
+    }
+    
+    .nav-link.active {
+      color: var(--primary);
+      background-color: #e6f2ff;
+      border-left: 3px solid var(--primary);
+    }
+    
+    .nav-link .toggle-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s;
+    }
+    
+    .nav-link.expanded .toggle-icon {
+      transform: translateY(-50%) rotate(180deg);
+    }
+    
+    .subnav {
+      padding-left: 20px;
+      display: none;
+      background-color: #f5f5f5;
+    }
+    
+    .subnav.open {
+      display: block;
+    }
+    
+    .subnav-link {
+      display: block;
+      padding: 8px 20px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    
+    .subnav-link:hover {
+      color: var(--primary);
+    }
+    
+    .subnav-link.active {
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    /* Main Content Styles */
+    .content {
+      flex: 1;
+      padding: 20px;
+      margin-left: 280px;
+      transition: margin-left 0.3s ease;
+    }
+    
+    .page-header {
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--primary);
+    }
+    
+    .page-header h1 {
+      color: var(--primary);
+      font-size: 2rem;
+    }
+    
+    .section {
+      margin-bottom: 30px;
+    }
+    
+    .section-title {
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ccc;
+      font-size: 1.5rem;
+    }
+    
+    .faq-item {
+      margin-bottom: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    
+    .question {
+      padding: 15px 20px;
+      background-color: #f8f9fa;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.2s;
+    }
+    
+    .question:hover {
+      background-color: #e9ecef;
+    }
+    
+    .question::before {
+      content: "Q: ";
+      color: var(--primary);
+    }
+    
+    .question::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--primary);
+      transition: transform 0.3s;
+    }
+    
+    .question.active::after {
+      content: "−";
+      transform: translateY(-50%);
+    }
+    
+    .answer {
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .answer.active {
+      padding: 15px 20px;
+      max-height: 1000px; /* Adjust as needed */
+    }
+    
+    .answer::before {
+      content: "A: ";
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    /* Mobile styles */
+    .mobile-toggle {
+      display: none;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1100;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .close-sidebar {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    
+    /* Search box */
+    .search-container {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .search-box {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    
+    .search-box:focus {
+      border-color: var(--primary);
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        width: 250px;
+      }
+      
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      
+      .content {
+        margin-left: 0;
+        padding: 20px 15px;
+      }
+      
+      .mobile-toggle, .close-sidebar {
+        display: block;
+      }
+      
+      .page-header {
+        padding-top: 40px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <button class="mobile-toggle" id="menuToggle">
-        <i class="fas fa-bars"></i>
-    </button>
+  <button class="mobile-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+  
+  <div class="container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>Mahaana Knowledge Base</h2>
+        <button class="close-sidebar" id="closeSidebar">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="search-container">
+        <input type="text" class="search-box" id="searchBox" placeholder="Search FAQs...">
+      </div>
+      
+      <nav class="nav-menu" id="faqCategories">
+        <!-- Categories will be generated dynamically -->
+      </nav>
+    </aside>
     
-    <div class="container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h2>Mahaana Knowledge Base</h2>
-                <button class="close-sidebar" id="closeSidebar">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+    <!-- Main Content -->
+    <main class="content">
+      <header class="page-header">
+        <h1>Mahaana Frequently Asked Questions</h1>
+      </header>
+      
+      <div id="faqSections">
+        <!-- FAQ sections will be generated dynamically -->
+      </div>
+    </main>
+  </div>
+  
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fetch the YAML data
+      fetch('/content/faq.yml')
+        .then(response => response.text())
+        .then(yamlText => {
+          // Parse YAML
+          const yamlData = jsyaml.load(yamlText);
+          const faqs = yamlData.faqs;
+          
+          // Group FAQs by category
+          const categorizedFaqs = {};
+          
+          faqs.forEach(faq => {
+            const category = faq.category || 'General';
+            if (!categorizedFaqs[category]) {
+              categorizedFaqs[category] = [];
+            }
+            categorizedFaqs[category].push(faq);
+          });
+          
+          // Generate sidebar navigation
+          const categories = Object.keys(categorizedFaqs);
+          const navMenu = document.getElementById('faqCategories');
+          const faqSections = document.getElementById('faqSections');
+          
+          categories.forEach(category => {
+            // Create category slug for IDs
+            const categorySlug = category.toLowerCase().replace(/[&\s]+/g, '-');
             
-            <div class="search-container">
-                <input type="text" class="search-box" id="searchBox" placeholder="Search FAQs...">
-            </div>
+            // Add to sidebar
+            const navItem = document.createElement('div');
+            navItem.className = 'nav-item';
+            navItem.innerHTML = `
+              <a href="#${categorySlug}" class="nav-link" data-section="${categorySlug}">
+                ${category}
+                <i class="fas fa-chevron-down toggle-icon"></i>
+              </a>
+              <div class="subnav" id="${categorySlug}-subnav"></div>
+            `;
+            navMenu.appendChild(navItem);
             
-            <nav class="nav-menu">
-                <div class="nav-item">
-                    <a href="#general" class="nav-link" data-section="general">
-                        General
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </a>
-                    <div class="subnav" id="general-subnav">
-                        <a href="#what-is-mahaana" class="subnav-link">What is Mahaana</a>
-                        <a href="#minimum-amount" class="subnav-link">Minimum Investment</a>
-                        <a href="#regulation" class="subnav-link">Regulation</a>
-                        <a href="#history" class="subnav-link">Company History</a>
-                        <a href="#security" class="subnav-link">Security</a>
-                    </div>
-                </div>
-                
-                <div class="nav-item">
-                    <a href="#account-verification" class="nav-link" data-section="account-verification">
-                        Account & Verification
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </a>
-                    <div class="subnav" id="account-verification-subnav">
-                        <a href="#bank-vs-mahaana" class="subnav-link">Difference from Banks</a>
-                        <a href="#account-upgrade" class="subnav-link">Account Upgrade</a>
-                        <a href="#deposits" class="subnav-link">Deposits</a>
-                        <a href="#fees-deduction" class="subnav-link">Fee Structure</a>
-                        <a href="#profits-management" class="subnav-link">Profit Management</a>
-                    </div>
-                </div>
-                
-                <div class="nav-item">
-                    <a href="#investments-funds" class="nav-link" data-section="investments-funds">
-                        Investments & Funds
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </a>
-                    <div class="subnav" id="investments-funds-subnav">
-                        <a href="#risk" class="subnav-link">Risk Management</a>
-                        <a href="#getting-started" class="subnav-link">Getting Started</a>
-                        <a href="#fund-differences" class="subnav-link">Fund Types</a>
-                        <a href="#investment-strategy" class="subnav-link">Investment Strategy</a>
-                        <a href="#fund-returns" class="subnav-link">Fund Returns</a>
-                        <a href="#fund-comparison" class="subnav-link">Comparing Funds</a>
-                    </div>
-                </div>
-                
-                <div class="nav-item">
-                    <a href="#withdrawals-deposits" class="nav-link" data-section="withdrawals-deposits">
-                        Withdrawals & Deposits
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </a>
-                    <div class="subnav" id="withdrawals-deposits-subnav">
-                        <a href="#deposit-process" class="subnav-link">Deposit Process</a>
-                        <a href="#processing-time" class="subnav-link">Processing Time</a>
-                        <a href="#withdrawal-profits" class="subnav-link">Withdrawing Profits</a>
-                        <a href="#taxation" class="subnav-link">Taxation</a>
-                    </div>
-                </div>
-                
-                <div class="nav-item">
-                    <a href="#returns-profits" class="nav-link" data-section="returns-profits">
-                        Returns & Profits
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </a>
-                    <div class="subnav" id="returns-profits-subnav">
-                        <a href="#fee-calculation" class="subnav-link">Fee Calculation</a>
-                        <a href="#annualized-rates" class="subnav-link">Annualized Rates</a>
-                        <a href="#profit-calculation" class="subnav-link">Profit Calculation</a>
-                        <a href="#nav-units" class="subnav-link">NAV and Units</a>
-                    </div>
-                </div>
-                
-                <div class="nav-item">
-                    <a href="#safety-regulation" class="nav-link" data-section="safety-regulation">
-                        Safety & Regulation
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </a>
-                    <div class="subnav" id="safety-regulation-subnav">
-                        <a href="#money-safety" class="subnav-link">Investment Safety</a>
-                        <a href="#regulatory-compliance" class="subnav-link">Regulatory Compliance</a>
-                        <a href="#trust-factors" class="subnav-link">Trust & Verification</a>
-                    </div>
-                </div>
-                
-                <div class="nav-item">
-                    <a href="#shariah-compliance" class="nav-link" data-section="shariah-compliance">
-                        Shariah Compliance
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </a>
-                    <div class="subnav" id="shariah-compliance-subnav">
-                        <a href="#islamic-finance" class="subnav-link">Islamic Finance Basics</a>
-                        <a href="#compliance-process" class="subnav-link">Compliance Process</a>
-                        <a href="#certification" class="subnav-link">Certification</a>
-                    </div>
-                </div>
-                
-                <div class="nav-item">
-                    <a href="#zakat-tax" class="nav-link" data-section="zakat-tax">
-                        Zakat & Tax
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </a>
-                    <div class="subnav" id="zakat-tax-subnav">
-                        <a href="#zakat-deduction" class="subnav-link">Zakat Deduction</a>
-                        <a href="#exemption" class="subnav-link">Exemption Process</a>
-                        <a href="#tax-status" class="subnav-link">Tax Status</a>
-                    </div>
-                </div>
-                
-                <div class="nav-item">
-                    <a href="#technology-access" class="nav-link" data-section="technology-access">
-                        Technology & Access
-                        <i class="fas fa-chevron-down toggle-icon"></i>
-                    </a>
-                    <div class="subnav" id="technology-access-subnav">
-                        <a href="#account-security" class="subnav-link">Account Security</a>
-                        <a href="#mobile-access" class="subnav-link">Mobile Access</a>
-                        <a href="#business-continuity" class="subnav-link">Business Continuity</a>
-                    </div>
-                </div>
-            </nav>
-        </aside>
+            // Add section to main content
+            const section = document.createElement('section');
+            section.id = categorySlug;
+            section.className = 'section';
+            section.innerHTML = `<h2 class="section-title">${category}</h2>`;
+            
+            // Add FAQs to this section
+            categorizedFaqs[category].forEach((faq, index) => {
+              const faqId = `${categorySlug}-faq-${index}`;
+              const faqItem = document.createElement('div');
+              faqItem.id = faqId;
+              faqItem.className = 'faq-item';
+              faqItem.innerHTML = `
+                <div class="question">${faq.question}</div>
+                <div class="answer">${faq.answer}</div>
+              `;
+              section.appendChild(faqItem);
+              
+              // Add this FAQ to the subnav
+              const subnav = document.getElementById(`${categorySlug}-subnav`);
+              const subnavLink = document.createElement('a');
+              subnavLink.href = `#${faqId}`;
+              subnavLink.className = 'subnav-link';
+              subnavLink.textContent = faq.question;
+              subnav.appendChild(subnavLink);
+            });
+            
+            faqSections.appendChild(section);
+          });
+          
+          // Initialize interactive elements
+          initializeInteractivity();
+        })
+        .catch(error => console.error('Error loading FAQ data:', error));
+      
+      function initializeInteractivity() {
+        // Elements
+        const sidebar = document.getElementById('sidebar');
+        const menuToggle = document.getElementById('menuToggle');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const questions = document.querySelectorAll('.question');
+        const backToTop = document.getElementById('backToTop');
+        const searchBox = document.getElementById('searchBox');
         
-        <!-- Main Content -->
-        <main class="content">
-            <header class="page-header">
-                <h1>Mahaana Frequently Asked Questions</h1>
-            </header>
+        // Toggle sidebar on mobile
+        menuToggle.addEventListener('click', function() {
+          sidebar.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+        
+        closeSidebar.addEventListener('click', function() {
+          sidebar.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+        
+        // Toggle subnav sections
+        navLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            const section = this.getAttribute('data-section');
+            const subnav = document.getElementById(`${section}-subnav`);
             
-            <!-- General Section -->
-            <section id="general" class="section">
-                <h2 class="section-title">General</h2>
-                
-                <div id="what-is-mahaana" class="faq-item">
-                    <div class="question">What is Mahaana? Is it a bank?</div>
-                    <div class="answer">
-                        No, we're not a bank - we're an investment company licensed by SECP (Securities and Exchange Commission of Pakistan). We help you invest your money in Shariah-compliant ways to earn profits. Unlike a bank, we don't just keep your money - we invest it to help it grow.
-                    </div>
-                </div>
-                
-                <div id="minimum-amount" class="faq-item">
-                    <div class="question">What's the minimum amount I need to start?</div>
-                    <div class="answer">
-                        You can start with just PKR 1,000! After that, you can add as little as PKR 500 anytime. We've kept these amounts low so everyone can start investing.
-                    </div>
-                </div>
-                
-                <div id="regulation" class="faq-item">
-                    <div class="question">Who regulates Mahaana?</div>
-                    <div class="answer">
-                        We're regulated by SECP (Securities and Exchange Commission of Pakistan), the official regulator for investment companies in Pakistan. We also have CDC (Central Depository Company) as our trustee, adding another layer of security for your investment.
-                    </div>
-                </div>
-                
-                <div id="history" class="faq-item">
-                    <div class="question">How long has Mahaana been operating?</div>
-                    <div class="answer">
-                        We started in March 2023 after getting all regulatory approvals. While we're new, we have an experienced team and have already shown strong performance, with our Save+ fund consistently giving competitive returns.
-                    </div>
-                </div>
-                
-                <div id="security" class="faq-item">
-                    <div class="question">Can someone steal my money?</div>
-                    <div class="answer">
-                        We take security very seriously:<br>All withdrawals only go to your registered bank account<br>Every transaction needs OTP verification<br>Multiple security layers protect your account<br>Regular security audits
-                    </div>
-                </div>
-                
-                <!-- More General FAQs would go here -->
-            </section>
-            
-            <!-- Account & Verification Section -->
-            <section id="account-verification" class="section">
-                <h2 class="section-title">Account & Verification</h2>
-                
-                <div id="bank-vs-mahaana" class="faq-item">
-                    <div class="question">How is this different from keeping money in my bank account?</div>
-                    <div class="answer">
-                        Unlike a bank account which typically gives low returns, we invest your money to earn better profits. Our Save+ fund has historically given better returns than bank savings accounts, while still keeping your money easily accessible.
-                    </div>
-                </div>
-                
-                <div id="account-upgrade" class="faq-item">
-                    <div class="question">Why do I need to upgrade my account?</div>
-                    <div class="answer">
-                        This is actually a regulatory requirement for your protection. The initial PKR 800,000 limit is set to ensure safe investing. When you're ready to invest more, we just need some additional verification as required by SECP regulations. It's a one-time process, and after upgrade, you can invest any amount you want.
-                    </div>
-                </div>
-                
-                <!-- More Account & Verification FAQs would go here -->
-            </section>
-            
-            <!-- Continue with other sections -->
-            <!-- Investments & Funds Section -->
-            <section id="investments-funds" class="section">
-                <h2 class="section-title">Investments & Funds</h2>
-                
-                <div id="risk" class="faq-item">
-                    <div class="question">Can I lose money investing with Mahaana?</div>
-                    <div class="answer">
-                        While all investments carry some risk, our Save+ fund is designed to be low-risk. We invest in stable, Shariah-compliant instruments like Islamic bank deposits to protect your money while earning good returns.
-                    </div>
-                </div>
-                
-                <div id="getting-started" class="faq-item">
-                    <div class="question">I'm completely new to investing - where should I start?</div>
-                    <div class="answer">
-                        Start with our Save+ fund! It's perfect for beginners because:<br>Low risk<br>Start with just PKR 1,000<br>Withdraw anytime<br>Easy to understand<br>Daily profits
-                    </div>
-                </div>
-                
-                <div id="fund-differences" class="faq-item">
-                    <div class="question">What's the difference between MICF and MIIETF?</div>
-                    <div class="answer">
-                        Let me explain the key differences between our two funds! MICF, or our Save+ fund, is like an enhanced savings account. It's a money market fund where we invest your money in low-risk Islamic instruments to give you stable returns. You can invest directly through our portal, and it's perfect if you want lower risk and easy access to your money.<br><br>MIIETF, on the other hand, is our equity fund that invests in Shariah-compliant stocks on the Pakistan Stock Exchange. While it has potential for higher returns, it also comes with higher risk. You'll need a broker account to invest in this one, and it's better suited for long-term investment goals when you can ride out market ups and downs.
-                    </div>
-                </div>
-                
-                <!-- Continue with other sections in the same pattern -->
-            </section>
-            
-            <!-- Additional sections would continue here -->
-        </main>
-    </div>
-    
-    <a href="#" class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Elements
-            const sidebar = document.getElementById('sidebar');
-            const menuToggle = document.getElementById('menuToggle');
-            const closeSidebar = document.getElementById('closeSidebar');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const questions = document.querySelectorAll('.question');
-            const backToTop = document.getElementById('backToTop');
-            const searchBox = document.getElementById('searchBox');
-            
-            // Toggle sidebar on mobile
-            menuToggle.addEventListener('click', function() {
-                sidebar.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            closeSidebar.addEventListener('click', function() {
-                sidebar.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-            
-            // Toggle subnav sections
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const section = this.getAttribute('data-section');
-                    const subnav = document.getElementById(`${section}-subnav`);
-                    
-                    // Toggle current subnav
-                    if (subnav) {
-                        this.classList.toggle('expanded');
-                        subnav.classList.toggle('open');
-                    }
-                    
-                    // Close sidebar on mobile when clicking a link
-                    if (window.innerWidth <= 768) {
-                        setTimeout(() => {
-                            sidebar.classList.remove('open');
-                            document.body.style.overflow = '';
-                        }, 300);
-                    }
-                });
-            });
-            
-            // Expand/collapse FAQ answers
-            questions.forEach(question => {
-                question.addEventListener('click', function() {
-                    // Toggle active state
-                    this.classList.toggle('active');
-                    const answer = this.nextElementSibling;
-                    answer.classList.toggle('active');
-                });
-            });
-            
-            // Show/hide back to top button
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-            });
-            
-            // Scroll to top when clicking the button
-            backToTop.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Search functionality
-            searchBox.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase().trim();
-                const faqItems = document.querySelectorAll('.faq-item');
-                
-                if (searchTerm === '') {
-                    // Show all FAQ items if search is empty
-                    faqItems.forEach(item => {
-                        item.style.display = 'block';
-                    });
-                    return;
-                }
-                
-                // Filter FAQ items based on search term
-                faqItems.forEach(item => {
-                    const question = item.querySelector('.question').textContent.toLowerCase();
-                    const answer = item.querySelector('.answer').textContent.toLowerCase();
-                    
-                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-                        item.style.display = 'block';
-                        // Auto-expand matching items
-                        const questionEl = item.querySelector('.question');
-                        const answerEl = item.querySelector('.answer');
-                        questionEl.classList.add('active');
-                        answerEl.classList.add('active');
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-            
-            // Open section and subsection based on hash in URL
-            function handleHashChange() {
-                const hash = window.location.hash;
-                if (hash) {
-                    // Find the section this hash belongs to
-                    const targetElement = document.querySelector(hash);
-                    if (targetElement) {
-                        // Find which section this belongs to
-                        const section = targetElement.closest('.section');
-                        if (section) {
-                            const sectionId = section.id;
-                            const navLink = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
-                            const subnav = document.getElementById(`${sectionId}-subnav`);
-                            
-                            // Open the section in the sidebar
-                            if (navLink && subnav) {
-                                navLink.classList.add('expanded');
-                                subnav.classList.add('open');
-                            }
-                            
-                            // Open the FAQ item
-                            if (targetElement.classList.contains('faq-item')) {
-                                const question = targetElement.querySelector('.question');
-                                const answer = targetElement.querySelector('.answer');
-                                if (question && answer) {
-                                    question.classList.add('active');
-                                    answer.classList.add('active');
-                                }
-                            }
-                            
-                            // Scroll to the target with offset for header
-                            setTimeout(() => {
-                                window.scrollTo({
-                                    top: targetElement.offsetTop - 80,
-                                    behavior: 'smooth'
-                                });
-                            }, 100);
-                        }
-                    }
-                }
+            // Toggle current subnav
+            if (subnav) {
+              this.classList.toggle('expanded');
+              subnav.classList.toggle('open');
             }
             
-            // Initialize sidebar with first section expanded
-            document.querySelector('.nav-link').classList.add('expanded');
-            document.querySelector('.subnav').classList.add('open');
-            
-            // Handle hash changes
-            window.addEventListener('hashchange', handleHashChange);
-            handleHashChange(); // Handle hash on page load
+            // Close sidebar on mobile when clicking a link
+            if (window.innerWidth <= 768) {
+              setTimeout(() => {
+                sidebar.classList.remove('open');
+                document.body.style.overflow = '';
+              }, 300);
+            }
+          });
         });
-    </script>
+        
+        // Expand/collapse FAQ answers
+        questions.forEach(question => {
+          question.addEventListener('click', function() {
+            // Toggle active state
+            this.classList.toggle('active');
+            const answer = this.nextElementSibling;
+            answer.classList.toggle('active');
+          });
+        });
+        
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        });
+        
+        // Scroll to top when clicking the button
+        backToTop.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+        
+        // Search functionality
+        searchBox.addEventListener('input', function() {
+          const searchTerm = this.value.toLowerCase().trim();
+          const faqItems = document.querySelectorAll('.faq-item');
+          
+          if (searchTerm === '') {
+            // Show all FAQ items if search is empty
+            faqItems.forEach(item => {
+              item.style.display = 'block';
+            });
+            return;
+          }
+          
+          // Filter FAQ items based on search term
+          faqItems.forEach(item => {
+            const question = item.querySelector('.question').textContent.toLowerCase();
+            const answer = item.querySelector('.answer').textContent.toLowerCase();
+            
+            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+              item.style.display = 'block';
+              // Auto-expand matching items
+              const questionEl = item.querySelector('.question');
+              const answerEl = item.querySelector('.answer');
+              questionEl.classList.add('active');
+              answerEl.classList.add('active');
+              
+              // Make sure the parent section is visible
+              const section = item.closest('.section');
+              if (section) {
+                section.style.display = 'block';
+              }
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+        
+        // Open first section by default
+        if (navLinks.length > 0) {
+          navLinks[0].classList.add('expanded');
+          const firstSubnav = document.querySelector('.subnav');
+          if (firstSubnav) {
+            firstSubnav.classList.add('open');
+          }
+        }
+        
+        // Handle hash changes for direct links
+        function handleHashChange() {
+          const hash = window.location.hash;
+          if (hash) {
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+              // If it's a FAQ item
+              if (targetElement.classList.contains('faq-item')) {
+                // Open the question
+                const question = targetElement.querySelector('.question');
+                const answer = targetElement.querySelector('.answer');
+                if (question && answer) {
+                  question.classList.add('active');
+                  answer.classList.add('active');
+                }
+                
+                // Open the corresponding category in the sidebar
+                const section = targetElement.closest('.section');
+                if (section) {
+                  const sectionId = section.id;
+                  const navLink = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
+                  const subnav = document.getElementById(`${sectionId}-subnav`);
+                  
+                  if (navLink && subnav) {
+                    navLink.classList.add('expanded');
+                    subnav.classList.add('open');
+                  }
+                }
+                
+                // Scroll to the target
+                setTimeout(() => {
+                  window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                  });
+                }, 100);
+              }
+            }
+          }
+        }
+        
+        window.addEventListener('hashchange', handleHashChange);
+        handleHashChange(); // Handle hash on page load
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 </body>
 </html>
