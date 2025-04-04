@@ -4,64 +4,87 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
+    <!-- Include Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Include the Netlify CMS script as a preload -->
+    <!-- Include the Netlify CMS script -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     
-    <!-- Initialize the CMS -->
+    <!-- GitHub login button -->
+    <div id="git-login" style="display: none; text-align: center; margin: 20px auto; max-width: 400px;">
+      <h2>Content Manager Login</h2>
+      <p>Use your GitHub account to manage content</p>
+      <button 
+        onclick="netlifyIdentity.open();" 
+        style="background: #24292e; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-size: 16px;">
+        Login with GitHub
+      </button>
+    </div>
+    
     <script>
-      // Wait for the DOM to be fully loaded
+      // Wait for everything to load
       document.addEventListener('DOMContentLoaded', function() {
-        // Check if CMS is available
-        if (window.CMS) {
-          window.CMS_MANUAL_INIT = true;
-          CMS.init({
-            config: {
-              backend: {
-                name: "git-gateway",
-                branch: "main"
-              },
-              media_folder: "static/images/uploads",
-              public_folder: "/images/uploads",
-              collections: [
-                {
-                  name: "faq",
-                  label: "FAQ",
-                  files: [
-                    {
-                      name: "faq_content",
-                      label: "FAQ Content",
-                      file: "content/faq.yml",
-                      fields: [
-                        {
-                          name: "faqs",
-                          label: "FAQs",
-                          widget: "list",
-                          fields: [
-                            {
-                              name: "question",
-                              label: "Question",
-                              widget: "string"
-                            },
-                            {
-                              name: "answer",
-                              label: "Answer",
-                              widget: "text"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+        // Show login button if needed
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", user => {
+            if (!user) {
+              document.getElementById('git-login').style.display = 'block';
             }
           });
-        } else {
-          console.error("Netlify CMS not loaded correctly");
-          document.body.innerHTML = '<div style="padding: 20px; color: red;">Error: Netlify CMS failed to load. Please check your connection and try again.</div>';
+          
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+            document.getElementById('git-login').style.display = 'none';
+          });
         }
+        
+        // Initialize Netlify CMS
+        window.CMS_MANUAL_INIT = true;
+        CMS.init({
+          config: {
+            backend: {
+              name: "git-gateway",
+              branch: "main",
+              repo: "curiousfire/mahaana-knowledge-base"
+            },
+            local_backend: false,
+            media_folder: "static/images/uploads",
+            public_folder: "/images/uploads",
+            collections: [
+              {
+                name: "faq",
+                label: "FAQ",
+                files: [
+                  {
+                    name: "faq_content",
+                    label: "FAQ Content",
+                    file: "content/faq.yml",
+                    fields: [
+                      {
+                        name: "faqs",
+                        label: "FAQs",
+                        widget: "list",
+                        fields: [
+                          {
+                            name: "question",
+                            label: "Question",
+                            widget: "string"
+                          },
+                          {
+                            name: "answer",
+                            label: "Answer",
+                            widget: "text"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        });
       });
     </script>
   </body>
