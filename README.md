@@ -1,1 +1,0 @@
-# mahaana-knowledge-base
