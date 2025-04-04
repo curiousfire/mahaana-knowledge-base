@@ -1,0 +1,30 @@
+backend:
+  branch: main
+  name: git-gateway
+
+collections:
+  - name: "general_faqs"
+    label: "General FAQs"
+    folder: "content/faqs/general"
+    create: true
+    fields:
+      - {label: "Question", name: "question", widget: "string"}
+      - {label: "Answer", name: "answer", widget: "text"}
+
+  - name: "account_faqs"
+    label: "Account & Verification FAQs"
+    folder: "content/faqs/account"
+    create: true
+    fields:
+      - {label: "Question", name: "question", widget: "string"}
+      - {label: "Answer", name: "answer", widget: "text"}
+
+  - name: "investments_faqs"
+    label: "Investments & Funds FAQs"
+    folder: "content/faqs/investments"
+    create: true
+    fields:
+      - {label: "Question", name: "question", widget: "string"}
+      - {label: "Answer", name: "answer", widget: "text"}
+
+  # Add more collections for each category
