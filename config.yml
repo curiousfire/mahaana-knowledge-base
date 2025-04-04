@@ -1,5 +1,12 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/img"
+public_folder: "/img"
+
 collections:
-  - name: "faq_general"
+  - name: "general_faqs"
     label: "General FAQs"
     folder: "content/faqs/general"
     create: true
@@ -8,18 +15,18 @@ collections:
       - { label: "Question", name: "question", widget: "string" }
       - { label: "Answer", name: "answer", widget: "text" }
 
-  - name: "faq_investments"
-    label: "Investments FAQs"
-    folder: "content/faqs/investments"
+  - name: "account_faqs"
+    label: "Account & Verification FAQs"
+    folder: "content/faqs/account"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Question", name: "question", widget: "string" }
       - { label: "Answer", name: "answer", widget: "text" }
 
-  - name: "faq_security"
-    label: "Security & Safety FAQs"
-    folder: "content/faqs/security"
+  - name: "investments_faqs"
+    label: "Investments & Funds FAQs"
+    folder: "content/faqs/investments"
     create: true
     slug: "{{slug}}"
     fields:
