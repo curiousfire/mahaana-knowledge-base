@@ -2,9 +2,12 @@
   "name": "mahaana-faq",
   "version": "1.0.0",
   "scripts": {
-    "build": "node scripts/generate-faq.js"
+    "update-collections": "node scripts/update-collections.js",
+    "generate-faq": "node scripts/generate-faq.js",
+    "build": "npm run update-collections && npm run generate-faq"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0"
   }
 }
