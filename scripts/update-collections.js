@@ -24,9 +24,9 @@ try {
   process.exit(1);
 }
 
-// Get the default collections (the ones we want to keep)
+// Keep only the faq_collections collection
 const defaultCollections = config.collections.filter(collection => 
-  ["general_faqs", "account_faqs", "investments_faqs", "faq_collections"].includes(collection.name)
+  ["faq_collections"].includes(collection.name)
 );
 
 // Read all collection definitions from the collections directory
