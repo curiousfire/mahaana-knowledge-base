@@ -8,6 +8,7 @@ media_folder: "static/img"
 public_folder: "/img"
 
 collections:
+  # Existing collections
   - name: general_faqs
     label: "General FAQs"
     folder: "content/faqs/general"
@@ -49,3 +50,24 @@ collections:
       - label: "Answer"
         name: "answer"
         widget: "text"
+  
+  # New collection to manage FAQ categories
+  - name: faq_collections
+    label: "FAQ Categories"
+    folder: "content/faq_collections"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "name"
+    fields:
+      - label: "Category Name"
+        name: "name"
+        widget: "string"
+        hint: "Name of the FAQ category (e.g., 'Payments', 'Security')"
+      - label: "Folder Name"
+        name: "folder"
+        widget: "string"
+        hint: "Folder name for this category (lowercase, no spaces, e.g., 'payments')"
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        required: false
