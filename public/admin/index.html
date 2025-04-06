@@ -150,8 +150,46 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        z-index: 100;
+        z-index: 9999;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Target Netlify identity widget elements */
+      .netlify-identity-signup,
+      .netlify-identity-user {
+        max-width: 500px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+      }
+      
+      .netlify-identity-signup {
+        padding: 20px !important;
+      }
+      
+      .netlify-identity-signup h1 {
+        font-size: 22px !important;
+        margin-bottom: 15px !important;
+        color: var(--primary) !important;
+      }
+      
+      .netlify-identity-input {
+        margin-bottom: 15px !important;
+        padding: 10px 12px !important;
+        border-radius: 6px !important;
+        border: 1px solid var(--gray) !important;
+      }
+      
+      .netlify-identity-button {
+        background-color: var(--primary) !important;
+        color: white !important;
+        padding: 10px 15px !important;
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+      }
+      
+      .netlify-identity-button:hover {
+        background-color: var(--primary-dark) !important;
       }
       
       .cms-title {
@@ -188,7 +226,7 @@
         display: none !important;
       }
       
-      /* CSS to enhance the CMS UI iframe */
+      /* CSS to enhance the CMS UI */
       .iframe-container {
         position: absolute;
         top: 70px;
@@ -202,6 +240,41 @@
         width: 100%;
         height: 100%;
         border: none;
+      }
+      
+      /* Troubleshooting for loading screen */
+      .css-1rr4qq7 {
+        max-width: none !important;
+      }
+      
+      /* Styling for password setup form for invited users */
+      .netlify-identity-signup label,
+      .netlify-identity-signup input {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+      
+      .netlify-identity-signup input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      
+      .netlify-identity-signup button {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      
+      .netlify-identity-signup button:hover {
+        background: var(--primary-dark);
       }
     </style>
   </head>
@@ -236,6 +309,18 @@
     
     <!-- Netlify CMS Script (will be loaded dynamically) -->
     <script>
+      // Add configuration for Netlify Identity
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.setConfig({
+          locale: 'en',
+          APIUrl: 'https://api.netlify.com',
+          setCookie: true,
+          // Ensure users can set passwords after invitation
+          enableExternalProviders: false,
+          allowNewRegistrations: false
+        });
+      }
+    
       document.addEventListener('DOMContentLoaded', function() {
         const customLoader = document.getElementById('customLoader');
         const customLogin = document.getElementById('customLogin');
@@ -280,6 +365,11 @@
         
         // Function to load the Netlify CMS
         function loadCMS() {
+          // Create a div for the CMS
+          const cmsDiv = document.createElement('div');
+          cmsDiv.id = 'nc-root';
+          cmsContainer.appendChild(cmsDiv);
+          
           // Create a script element to load Netlify CMS
           const script = document.createElement('script');
           script.src = 'https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js';
@@ -287,14 +377,26 @@
             // The CMS script has loaded
             window.cmsLoaded = true;
             
-            // Allow some time for the CMS to initialize
-            setTimeout(hideLoader, 1000);
+            // Hide loader after a brief delay
+            setTimeout(hideLoader, 800);
             
             // You can customize the CMS config here if needed
             if (window.CMS) {
-              // Example: customize the CMS
-              window.CMS.registerPreviewStyle('/preview.css');
+              // Add custom event listener for CMS initialization
+              window.CMS.registerEventListener({
+                name: 'preSave',
+                handler: () => {
+                  console.log('Content being saved...');
+                },
+              });
             }
+          };
+          
+          // Add error handling
+          script.onerror = function() {
+            console.error('Failed to load the CMS script');
+            alert('There was a problem loading the content management system. Please refresh the page to try again.');
+            hideLoader();
           };
           
           // Add the script to the document
@@ -323,6 +425,35 @@
           // Handle logout events
           window.netlifyIdentity.on('logout', () => {
             showLogin();
+          });
+          
+          // Handle user creation for invited users
+          window.netlifyIdentity.on('signup', user => {
+            console.log('User signup detected');
+            // If this is an invited user, they'll go through this flow
+            showLoader();
+          });
+          
+          // Handle email confirmation
+          window.netlifyIdentity.on('email_verified', () => {
+            console.log('Email verified');
+            showLoader();
+            setTimeout(() => {
+              showCMS();
+            }, 1000);
+          });
+          
+          // Handle user recovery (password reset)
+          window.netlifyIdentity.on('recovery', () => {
+            console.log('Password recovery in progress');
+          });
+          
+          // Handle errors
+          window.netlifyIdentity.on('error', err => {
+            console.error('Netlify Identity error:', err);
+            // Display user-friendly error message
+            hideLoader();
+            alert('There was a problem with authentication. Please try again.');
           });
         }
         
