@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
 
-const basePath = path.join(__dirname, "content/faqs");
+const basePath = path.join(__dirname, "../content/faqs");
 const allFaqs = [];
 
 // Get all directories (categories) in the faqs folder
