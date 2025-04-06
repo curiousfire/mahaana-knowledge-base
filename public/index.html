@@ -358,7 +358,7 @@
         const matchesCategory = this.activeCategory === 'all' || faq.category === this.activeCategory;
         const matchesSearch = this.searchTerm === '' || 
           faq.question.toLowerCase().includes(this.searchTerm.toLowerCase()) || 
-          faq.answer.toLowerCase().includes(this.searchTerm.toLowerCase());
+          (faq.answer && faq.answer.toLowerCase().includes(this.searchTerm.toLowerCase()));
         return matchesCategory && matchesSearch;
       }));
     },
@@ -387,15 +387,25 @@
     fetch('/faq.json')
       .then(res => res.json())
       .then(data => {
+        // Check if data.faqs exists and is an array
+        if (!data.faqs || !Array.isArray(data.faqs)) {
+          console.error('Invalid data format:', data);
+          faqs = [];
+          isLoading = false;
+          return;
+        }
+        
         faqs = data.faqs.map((faq, index) => ({
           ...faq,
           id: index,
-          isOpen: false
+          isOpen: false,
+          // Ensure answer exists to prevent errors in search
+          answer: faq.answer || ''
         }));
         
         // Extract unique categories
         const categorySet = new Set(faqs.map(faq => faq.category || 'General'));
-        categories = ['all', ...categorySet];
+        categories = ['all', ...Array.from(categorySet)];
         
         isLoading = false;
         
@@ -405,7 +415,7 @@
         }, 200);
       })
       .catch(error => {
-        console.error(error);
+        console.error('Error loading FAQ data:', error);
         isLoading = false;
       });
   ">
@@ -423,11 +433,16 @@
         placeholder="Search for answers..." 
         x-model="searchTerm"
         x-on:input="animateSections()"
+        @keyup.debounce.300ms="animateSections()"
       >
-      <span class="search-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <span class="search-icon" @click="searchTerm = ''">
+        <svg x-show="!searchTerm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <svg x-show="searchTerm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </span>
     </div>
@@ -489,12 +504,7 @@
       </template>
     </div>
 
-    <!-- Contact CTA -->
-    <div class="contact-cta">
-      <h3>Still have questions?</h3>
-      <p>If you couldn't find the answer you were looking for, our support team is here to help.</p>
-      <a href="#" class="btn">Contact Support</a>
-    </div>
+    <!-- End of FAQs -->
   </div>
 
   <!-- Netlify Identity redirect script -->
