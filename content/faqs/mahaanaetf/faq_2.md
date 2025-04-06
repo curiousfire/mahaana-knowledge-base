@@ -1,0 +1,4 @@
+---
+question: "What's the difference between MICF and MIIETF?"
+answer: "Let me explain the key differences between our two funds! MICF, or our Save+ fund, is like an enhanced savings account. It's a money market fund where we invest your money in low-risk Islamic instruments to give you stable returns. You can invest directly through our portal, and it's perfect if you want lower risk and easy access to your money.MIIETF, on the other hand, is our equity fund that invests in Shariah-compliant stocks on the Pakistan Stock Exchange. While it has potential for higher returns, it also comes with higher risk. You'll need a broker account to invest in this one, and it's better suited for long-term investment goals when you can ride out market ups and downs."
+---
