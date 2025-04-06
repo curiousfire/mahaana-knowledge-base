@@ -7,7 +7,8 @@
     "build": "npm run update-collections && npm run generate-faq"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3",
-    "js-yaml": "^4.1.0"
-  }
+  "gray-matter": "^4.0.3",
+  "js-yaml": "^4.1.0",
+  "@babel/compat-data": "^7.22.9"
+}
 }
