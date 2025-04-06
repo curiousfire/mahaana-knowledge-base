@@ -3,474 +3,670 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mahaana Knowledge Base - Admin Panel</title>
+    <title>Mahaana Knowledge Base - Admin</title>
     <!-- Add the Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
+      /* Modern variables */
       :root {
-        --primary: #4F46E5;
-        --primary-light: #818CF8;
+        --primary: #5046E5;
+        --primary-hover: #6056FF;
         --primary-dark: #4338CA;
-        --secondary: #10B981;
-        --dark: #1F2937;
-        --light: #F9FAFB;
-        --gray-light: #F3F4F6;
-        --gray: #E5E7EB;
-        --text: #374151;
-        --text-light: #6B7280;
+        --success: #10B981;
+        --warning: #F59E0B;
+        --danger: #EF4444;
+        --dark: #111827;
+        --light: #FFFFFF;
+        --gray-50: #F9FAFB;
+        --gray-100: #F3F4F6;
+        --gray-200: #E5E7EB;
+        --gray-300: #D1D5DB;
+        --gray-400: #9CA3AF;
+        --gray-500: #6B7280;
+        --gray-800: #1F2937;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+        --radius-sm: 0.25rem;
+        --radius: 0.375rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+        --radius-xl: 1rem;
+        --radius-full: 9999px;
       }
-      
+
+      /* Base Styles */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       }
-      
-      body {
-        background-color: var(--light);
-      }
-      
-      /* Custom loader */
-      .custom-loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
+
+      html {
         height: 100%;
-        background-color: rgba(255, 255, 255, 0.9);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        transition: opacity 0.5s ease;
-      }
-      
-      .loader-logo {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 20px;
-        background-color: var(--primary);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 32px;
-        font-weight: bold;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      }
-      
-      .loader-text {
-        font-size: 18px;
-        font-weight: 500;
-        color: var(--primary);
-        margin-top: 15px;
-      }
-      
-      .loader-spinner {
-        width: 50px;
-        height: 50px;
-        border: 5px solid var(--gray-light);
-        border-top: 5px solid var(--primary);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-      
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      
-      /* Login page customization */
-      .custom-login {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9998;
-      }
-      
-      .login-container {
-        background-color: white;
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        text-align: center;
-        max-width: 450px;
-        width: 90%;
-      }
-      
-      .login-logo {
-        font-size: 28px;
-        font-weight: 800;
-        color: var(--primary);
-        margin-bottom: 20px;
-      }
-      
-      .login-message {
-        color: var(--text-light);
-        margin-bottom: 30px;
-        line-height: 1.6;
-      }
-      
-      .login-btn {
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 6px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      
-      .login-btn:hover {
-        background-color: var(--primary-dark);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      }
-      
-      /* CMS UI Improvements */
-      /* These styles will override Netlify CMS default styles */
-      .custom-cms-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        padding: 15px 30px;
-        background-color: var(--primary);
-        color: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 9999;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      }
-      
-      /* Target Netlify identity widget elements */
-      .netlify-identity-signup,
-      .netlify-identity-user {
-        max-width: 500px !important;
-        border-radius: 12px !important;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
-      }
-      
-      .netlify-identity-signup {
-        padding: 20px !important;
-      }
-      
-      .netlify-identity-signup h1 {
-        font-size: 22px !important;
-        margin-bottom: 15px !important;
-        color: var(--primary) !important;
-      }
-      
-      .netlify-identity-input {
-        margin-bottom: 15px !important;
-        padding: 10px 12px !important;
-        border-radius: 6px !important;
-        border: 1px solid var(--gray) !important;
-      }
-      
-      .netlify-identity-button {
-        background-color: var(--primary) !important;
-        color: white !important;
-        padding: 10px 15px !important;
-        border-radius: 6px !important;
-        font-weight: 600 !important;
-        transition: all 0.2s ease !important;
-      }
-      
-      .netlify-identity-button:hover {
-        background-color: var(--primary-dark) !important;
-      }
-      
-      .cms-title {
-        font-size: 20px;
-        font-weight: 700;
-      }
-      
-      .cms-actions {
-        display: flex;
-        gap: 15px;
-      }
-      
-      .cms-btn {
-        background-color: rgba(255, 255, 255, 0.2);
-        border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        color: white;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-      
-      .cms-btn:hover {
-        background-color: rgba(255, 255, 255, 0.3);
-      }
-      
-      .cms-logout {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-      
-      /* Helper to hide elements */
-      .hidden {
-        display: none !important;
-      }
-      
-      /* CSS to enhance the CMS UI */
-      .iframe-container {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        overflow: hidden;
-      }
-      
-      .cms-iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-      
-      /* Troubleshooting for loading screen */
-      .css-1rr4qq7 {
-        max-width: none !important;
-      }
-      
-      /* Styling for password setup form for invited users */
-      .netlify-identity-signup label,
-      .netlify-identity-signup input {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
         font-size: 16px;
       }
-      
-      .netlify-identity-signup input {
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
+
+      body {
+        min-height: 100%;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--gray-800);
+        background-color: var(--gray-50);
+        display: flex;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
-      
-      .netlify-identity-signup button {
+
+      /* Login Screen */
+      .auth-container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #5046E5, #4338CA);
+      }
+
+      .auth-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.2;
+      }
+
+      .auth-background-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+          radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.2) 2%, transparent 0%),
+          radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.2) 2%, transparent 0%);
+        background-size: 100px 100px;
+        z-index: 1;
+      }
+
+      .auth-background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .shape {
+        position: absolute;
+        border-radius: var(--radius-full);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .shape-1 {
+        top: 10%;
+        left: 10%;
+        width: 300px;
+        height: 300px;
+        opacity: 0.4;
+        transform: rotate(30deg);
+        filter: blur(50px);
+      }
+
+      .shape-2 {
+        top: 60%;
+        left: 70%;
+        width: 400px;
+        height: 400px;
+        opacity: 0.3;
+        transform: rotate(-20deg);
+        filter: blur(60px);
+      }
+
+      .shape-3 {
+        top: 30%;
+        left: 80%;
+        width: 200px;
+        height: 200px;
+        opacity: 0.4;
+        filter: blur(40px);
+      }
+
+      .auth-card {
+        position: relative;
+        width: 100%;
+        max-width: 450px;
+        padding: 2.5rem;
+        margin: 1rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        z-index: 10;
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .auth-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .auth-logo {
+        width: 84px;
+        height: 84px;
+        background: var(--primary);
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .auth-logo::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(
+          90deg, 
+          rgba(255,255,255,0) 0%, 
+          rgba(255,255,255,0.3) 50%, 
+          rgba(255,255,255,0) 100%
+        );
+        animation: shine 3s infinite;
+        transform: skewX(-20deg);
+      }
+
+      @keyframes shine {
+        0% { left: -100%; }
+        20% { left: 100%; }
+        100% { left: 100%; }
+      }
+
+      .auth-logo-text {
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+
+      .auth-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--gray-800);
+        margin-bottom: 0.5rem;
+      }
+
+      .auth-subtitle {
+        font-size: 1rem;
+        color: var(--gray-500);
+        max-width: 300px;
+      }
+
+      .auth-form {
+        margin-top: 2rem;
+      }
+
+      .auth-button {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
         background: var(--primary);
         color: white;
         border: none;
-        padding: 10px 15px;
-        border-radius: 4px;
-        font-weight: bold;
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        font-size: 1rem;
         cursor: pointer;
-        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        box-shadow: var(--shadow);
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
       }
-      
-      .netlify-identity-signup button:hover {
-        background: var(--primary-dark);
+
+      .auth-button:hover {
+        background: var(--primary-hover);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .auth-button:active {
+        transform: translateY(0);
+        box-shadow: var(--shadow);
+      }
+
+      .auth-button::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg, 
+          rgba(255,255,255,0) 0%, 
+          rgba(255,255,255,0.2) 50%, 
+          rgba(255,255,255,0) 100%
+        );
+        animation: button-shine 3s infinite;
+        transform: skewX(-20deg);
+      }
+
+      @keyframes button-shine {
+        0% { left: -100%; }
+        20% { left: 100%; }
+        100% { left: 100%; }
+      }
+
+      .auth-button-icon {
+        font-size: 1.25rem;
+      }
+
+      .auth-footer {
+        margin-top: 2rem;
+        text-align: center;
+        color: var(--gray-500);
+        font-size: 0.875rem;
+      }
+
+      .help-link {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      .help-link:hover {
+        color: var(--primary-hover);
+        text-decoration: underline;
+      }
+
+      /* Loading overlay */
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+
+      .loading-spinner {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1.5rem;
+      }
+
+      .loading-spinner div {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        height: 13px;
+        border-radius: var(--radius-full);
+        background: var(--primary);
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+      }
+
+      .loading-spinner div:nth-child(1) {
+        left: 8px;
+        animation: loading-spinner1 0.6s infinite;
+      }
+
+      .loading-spinner div:nth-child(2) {
+        left: 8px;
+        animation: loading-spinner2 0.6s infinite;
+      }
+
+      .loading-spinner div:nth-child(3) {
+        left: 32px;
+        animation: loading-spinner2 0.6s infinite;
+      }
+
+      .loading-spinner div:nth-child(4) {
+        left: 56px;
+        animation: loading-spinner3 0.6s infinite;
+      }
+
+      @keyframes loading-spinner1 {
+        0% { transform: scale(0); }
+        100% { transform: scale(1); }
+      }
+
+      @keyframes loading-spinner2 {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(24px, 0); }
+      }
+
+      @keyframes loading-spinner3 {
+        0% { transform: scale(1); }
+        100% { transform: scale(0); }
+      }
+
+      .loading-text {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .loading-subtext {
+        color: var(--gray-500);
+        font-size: 0.875rem;
+      }
+
+      /* Admin Header */
+      .admin-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 64px;
+        background: white;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.5rem;
+        z-index: 100;
+      }
+
+      .admin-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .admin-logo {
+        width: 40px;
+        height: 40px;
+        background: var(--primary);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+      }
+
+      .admin-title {
+        font-weight: 600;
+        font-size: 1.125rem;
+        color: var(--gray-800);
+      }
+
+      .admin-actions {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .admin-button {
+        padding: 0.5rem 1rem;
+        background: white;
+        border: 1px solid var(--gray-200);
+        border-radius: var(--radius);
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+
+      .admin-button:hover {
+        background: var(--gray-50);
+        border-color: var(--gray-300);
+      }
+
+      .admin-button-primary {
+        background: var(--primary);
+        color: white;
+        border: none;
+      }
+
+      .admin-button-primary:hover {
+        background: var(--primary-hover);
+      }
+
+      /* CMS Container */
+      .cms-container {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 64px);
+        overflow: hidden;
+      }
+
+      /* Utility */
+      .hidden {
+        display: none !important;
       }
     </style>
   </head>
   <body>
-    <!-- Custom Loader -->
-    <div class="custom-loader" id="customLoader">
-      <div class="loader-logo">M</div>
-      <div class="loader-spinner"></div>
-      <div class="loader-text">Loading Admin Panel...</div>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="loading-text">Setting up your workspace</div>
+      <div class="loading-subtext">This may take a few moments...</div>
     </div>
-    
-    <!-- Custom Login UI (will be shown if user is not logged in) -->
-    <div class="custom-login hidden" id="customLogin">
-      <div class="login-container">
-        <div class="login-logo">Mahaana Knowledge Base</div>
-        <p class="login-message">Welcome to the admin panel. Please log in to manage your FAQ content.</p>
-        <button class="login-btn" id="loginBtn">Log in with Netlify Identity</button>
+
+    <!-- Auth Container -->
+    <div class="auth-container hidden" id="authContainer">
+      <!-- Background Elements -->
+      <div class="auth-background">
+        <div class="auth-background-pattern"></div>
+        <div class="auth-background-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+      
+      <!-- Auth Card -->
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="auth-logo">
+            <span class="auth-logo-text">M</span>
+          </div>
+          <h1 class="auth-title">Mahaana Knowledge Base</h1>
+          <p class="auth-subtitle">Sign in to manage your FAQ content and knowledge base</p>
+        </div>
+        
+        <div class="auth-form">
+          <button class="auth-button" id="loginButton">
+            <span class="auth-button-icon"><i class="fas fa-sign-in-alt"></i></span>
+            <span>Sign in with Netlify Identity</span>
+          </button>
+        </div>
+        
+        <div class="auth-footer">
+          <p>Need help? <a href="#" class="help-link">Contact support</a></p>
+        </div>
       </div>
     </div>
-    
-    <!-- Custom Header for CMS (will be shown after login) -->
-    <div class="custom-cms-header hidden" id="cmsHeader">
-      <div class="cms-title">Mahaana Knowledge Base Admin</div>
-      <div class="cms-actions">
-        <button class="cms-btn" id="viewSiteBtn">View Site</button>
-        <button class="cms-btn cms-logout" id="logoutBtn">Log Out</button>
+
+    <!-- Admin Header -->
+    <header class="admin-header hidden" id="adminHeader">
+      <div class="admin-brand">
+        <div class="admin-logo">M</div>
+        <h1 class="admin-title">Mahaana Knowledge Base</h1>
       </div>
-    </div>
+      <div class="admin-actions">
+        <button class="admin-button" id="viewSiteButton">
+          <i class="fas fa-external-link-alt"></i>
+          <span>View Site</span>
+        </button>
+        <button class="admin-button admin-button-primary" id="logoutButton">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Sign Out</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- CMS Container -->
+    <div class="cms-container hidden" id="cmsContainer"></div>
+
+    <!-- Netlify CMS Script -->
+    <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
     
-    <!-- Container for Netlify CMS -->
-    <div class="iframe-container hidden" id="cmsContainer"></div>
-    
-    <!-- Netlify CMS Script (will be loaded dynamically) -->
     <script>
-      // Add configuration for Netlify Identity
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.setConfig({
-          locale: 'en',
-          APIUrl: 'https://api.netlify.com',
-          setCookie: true,
-          // Ensure users can set passwords after invitation
-          enableExternalProviders: false,
-          allowNewRegistrations: false
-        });
-      }
-    
       document.addEventListener('DOMContentLoaded', function() {
-        const customLoader = document.getElementById('customLoader');
-        const customLogin = document.getElementById('customLogin');
-        const cmsHeader = document.getElementById('cmsHeader');
+        // Elements
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const authContainer = document.getElementById('authContainer');
+        const adminHeader = document.getElementById('adminHeader');
         const cmsContainer = document.getElementById('cmsContainer');
-        const loginBtn = document.getElementById('loginBtn');
-        const logoutBtn = document.getElementById('logoutBtn');
-        const viewSiteBtn = document.getElementById('viewSiteBtn');
+        const loginButton = document.getElementById('loginButton');
+        const logoutButton = document.getElementById('logoutButton');
+        const viewSiteButton = document.getElementById('viewSiteButton');
         
-        // Function to show the loader
-        function showLoader() {
-          customLoader.classList.remove('hidden');
+        // Fix for infinite loading - maximum time to wait
+        const MAX_LOADING_TIME = 5000;
+        let loadingTimer = null;
+        
+        // UI state management
+        function showLoading() {
+          loadingOverlay.classList.remove('hidden');
+          authContainer.classList.add('hidden');
+          adminHeader.classList.add('hidden');
+          cmsContainer.classList.add('hidden');
+          
+          // Safety measure - maximum loading time
+          clearTimeout(loadingTimer);
+          loadingTimer = setTimeout(() => {
+            console.log('Loading timeout reached, forcing UI to show');
+            if (window.netlifyIdentity && window.netlifyIdentity.currentUser()) {
+              showAdmin();
+            } else {
+              showAuth();
+            }
+          }, MAX_LOADING_TIME);
         }
         
-        // Function to hide the loader
-        function hideLoader() {
-          customLoader.style.opacity = '0';
-          setTimeout(() => {
-            customLoader.classList.add('hidden');
-            customLoader.style.opacity = '1';
-          }, 500);
+        function hideLoading() {
+          clearTimeout(loadingTimer);
+          loadingOverlay.classList.add('hidden');
         }
         
-        // Function to show login screen
-        function showLogin() {
-          customLogin.classList.remove('hidden');
-          cmsHeader.classList.add('hidden');
+        function showAuth() {
+          hideLoading();
+          authContainer.classList.remove('hidden');
+          adminHeader.classList.add('hidden');
           cmsContainer.classList.add('hidden');
         }
         
-        // Function to show CMS
-        function showCMS() {
-          customLogin.classList.add('hidden');
-          cmsHeader.classList.remove('hidden');
+        function showAdmin() {
+          hideLoading();
+          authContainer.classList.add('hidden');
+          adminHeader.classList.remove('hidden');
           cmsContainer.classList.remove('hidden');
           
-          // If the CMS hasn't been loaded yet, load it
-          if (!window.cmsLoaded) {
-            loadCMS();
+          // Initialize CMS if needed
+          initCMS();
+        }
+        
+        // Initialize CMS
+        function initCMS() {
+          if (!document.getElementById('nc-root')) {
+            console.log('Initializing CMS root');
+            const root = document.createElement('div');
+            root.id = 'nc-root';
+            cmsContainer.appendChild(root);
           }
         }
         
-        // Function to load the Netlify CMS
-        function loadCMS() {
-          // Create a div for the CMS
-          const cmsDiv = document.createElement('div');
-          cmsDiv.id = 'nc-root';
-          cmsContainer.appendChild(cmsDiv);
+        // Initialize based on authentication
+        function init() {
+          showLoading();
           
-          // Create a script element to load Netlify CMS
-          const script = document.createElement('script');
-          script.src = 'https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js';
-          script.onload = function() {
-            // The CMS script has loaded
-            window.cmsLoaded = true;
+          if (window.netlifyIdentity) {
+            const currentUser = window.netlifyIdentity.currentUser();
             
-            // Hide loader after a brief delay
-            setTimeout(hideLoader, 800);
-            
-            // You can customize the CMS config here if needed
-            if (window.CMS) {
-              // Add custom event listener for CMS initialization
-              window.CMS.registerEventListener({
-                name: 'preSave',
-                handler: () => {
-                  console.log('Content being saved...');
-                },
-              });
-            }
-          };
-          
-          // Add error handling
-          script.onerror = function() {
-            console.error('Failed to load the CMS script');
-            alert('There was a problem loading the content management system. Please refresh the page to try again.');
-            hideLoader();
-          };
-          
-          // Add the script to the document
-          document.body.appendChild(script);
-        }
-        
-        // Check if the user is logged in
-        if (window.netlifyIdentity) {
-          window.netlifyIdentity.on('init', user => {
-            if (user) {
-              // User is logged in, show the CMS
-              showCMS();
+            if (currentUser) {
+              console.log('User is already logged in');
+              showAdmin();
             } else {
-              // User is not logged in, show the login screen
-              hideLoader();
-              showLogin();
+              console.log('User is not logged in');
+              showAuth();
             }
-          });
-          
-          // Handle login events
-          window.netlifyIdentity.on('login', () => {
-            showLoader();
-            showCMS();
-          });
-          
-          // Handle logout events
-          window.netlifyIdentity.on('logout', () => {
-            showLogin();
-          });
-          
-          // Handle user creation for invited users
-          window.netlifyIdentity.on('signup', user => {
-            console.log('User signup detected');
-            // If this is an invited user, they'll go through this flow
-            showLoader();
-          });
-          
-          // Handle email confirmation
-          window.netlifyIdentity.on('email_verified', () => {
-            console.log('Email verified');
-            showLoader();
-            setTimeout(() => {
-              showCMS();
-            }, 1000);
-          });
-          
-          // Handle user recovery (password reset)
-          window.netlifyIdentity.on('recovery', () => {
-            console.log('Password recovery in progress');
-          });
-          
-          // Handle errors
-          window.netlifyIdentity.on('error', err => {
-            console.error('Netlify Identity error:', err);
-            // Display user-friendly error message
-            hideLoader();
-            alert('There was a problem with authentication. Please try again.');
-          });
+            
+            // Set up event listeners
+            window.netlifyIdentity.on('login', user => {
+              console.log('Login successful');
+              showLoading();
+              setTimeout(() => {
+                showAdmin();
+              }, 1000);
+            });
+            
+            window.netlifyIdentity.on('logout', () => {
+              console.log('Logout successful');
+              showAuth();
+            });
+            
+            window.netlifyIdentity.on('error', err => {
+              console.error('Netlify Identity error:', err);
+              showAuth();
+              alert('There was a problem with authentication. Please try again.');
+            });
+          } else {
+            console.error('Netlify Identity widget not found');
+            showAuth();
+          }
         }
         
-        // Handle login button click
-        loginBtn.addEventListener('click', function() {
+        // Event listeners
+        loginButton.addEventListener('click', () => {
           window.netlifyIdentity.open('login');
         });
         
-        // Handle logout button click
-        logoutBtn.addEventListener('click', function() {
+        logoutButton.addEventListener('click', () => {
           window.netlifyIdentity.logout();
         });
         
-        // Handle view site button click
-        viewSiteBtn.addEventListener('click', function() {
+        viewSiteButton.addEventListener('click', () => {
           window.open('/', '_blank');
         });
+        
+        // Initialize everything
+        init();
       });
     </script>
   </body>
