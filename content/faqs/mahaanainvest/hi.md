@@ -1,4 +1,0 @@
----
-question: Hi
-answer: Hello
----
