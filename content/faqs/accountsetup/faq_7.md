@@ -1,7 +1,5 @@
 ---
-answer: 'A: This is actually a regulatory requirement for your protection. The initial
-  PKR 800,000 limit is set to ensure safe investing. When you''re ready to invest
-  more, we just need some additional verification as required by SECP regulations.
-  It''s a one-time process, and after upgrade, you can invest any amount you want.'
-question: Why do I need to upgrade my account?
+question: "I'm young and starting to invest - MICF or MIIETF?"
+answer: |
+  A: Being young, you could consider taking more exposure in MIIETF. Since you have time on your side, you can ride out market ups and downs, and historically, equity investments have given better long-term returns. However, it's smart to keep some money in Save+ (MICF) too for stability.
 ---

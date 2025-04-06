@@ -1,6 +1,5 @@
 ---
-answer: 'A: Easy to fix! Just click ''Forgot Password'' on the login page. We''ll
-  send a reset link to your registered email. For extra security, you''ll need to
-  verify through OTP too.'
-question: What happens if I forget my password?
+question: "Is there a limit on how much I can move in and out?"
+answer: |
+  When you first start with us, yes - you can move up to PKR 400,000 per day (PKR 800,000 total) for both deposits and withdrawals. After your account is upgraded, these limits go away. The daily limits reset at midnight.
 ---

@@ -1,8 +1,5 @@
 ---
-answer: 'A: Not at all! The monthly plan you selected is just a suggestion, not a
-  commitment. You can invest whenever you want, skip months, or invest different amounts
-  - it''s totally flexible. Your profits are earned on whatever amount you have invested,
-  whether you make regular deposits or not.'
-question: I selected a monthly investment plan when opening my account - do I have
-  to stick to it to get profits?
+question: "If NAV keeps going up, does that mean I'm making profit?"
+answer: |
+  A: Yes! When NAV increases, each unit you own is worth more. In Save+ (MICF), NAV only goes up because it's a very low-risk fund. You can track these increases daily on our website (www.mahaana.com/micf) or in your account statement.
 ---

@@ -1,7 +1,5 @@
 ---
-answer: 'A: Total Expense Ratio (TER) is already built into the daily NAV calculations.
-  For current TER figures, visit www.mahaana.com/micf for Save+ or www.mahaana.com/miietf
-  for MIIETF. You don''t need to subtract anything from your returns - they''re already
-  net of all fees.'
-question: What's TER and how does it affect my investment?
+question: "What does 'annualized' mean in the percentages I see?"
+answer: |
+  A: Think of annualized like converting a short-term number into a yearly rate. It's like saying "if this continued for a full year, here's what it would be." For example, if we show 12% annualized, but you're looking at just one month's data, we've calculated what it would be over a full year at that rate.
 ---

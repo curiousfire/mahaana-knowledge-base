@@ -1,6 +1,5 @@
 ---
-answer: 'A: A 15% Capital Gains Tax (CGT) applies, but only to the profit portion
-  of your withdrawal. This rate is the same for both tax filers and non-filers, and
-  it''s deducted automatically.'
-question: How is tax calculated on my withdrawals?
+question: "I need regular income - which fund should I choose?"
+answer: |
+  A: Save+ (MICF) would be better for regular income needs. It gives steady returns and you can withdraw anytime. MIIETF is more suited for long-term wealth building where you don't need the money immediately.
 ---

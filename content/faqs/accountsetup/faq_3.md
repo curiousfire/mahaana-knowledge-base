@@ -1,4 +1,5 @@
 ---
-answer: Just Cnic and iBAN NUMBER IS REQUIRED TO open an account
-question: What documents do I need?
+question: "I'm completely new to investing - where should I start?"
+answer: |
+  A: Start with our Save+ fund! It's perfect for beginners because:
 ---

@@ -1,6 +1,5 @@
 ---
-answer: 'A: Your money is completely safe because: It''s held by CDC as trustee, not
-  by Mahaana Your investment is separate from our company''s assets All regulated
-  by SECP You can withdraw your money anytime, regardless of what happens to Mahaana.'
-question: What if Mahaana shuts down - what happens to my money?
+question: "When I invest more money, do I get more units or does my unit value increase?"
+answer: |
+  A: You get more units. When you invest more money, we divide your new investment by that day's NAV to give you additional units. Your existing units keep their same value - they just continue growing as NAV increases daily.
 ---

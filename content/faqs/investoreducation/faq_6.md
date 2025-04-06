@@ -1,6 +1,5 @@
 ---
-answer: 'A: Our management fee is calculated and deducted daily in the NAV calculation.
-  This means the returns you see on our website are your actual returns - all fees
-  are already accounted for.'
-question: How is the management fee calculated?
+question: "Do I need to keep track of complicated numbers or do calculations?"
+answer: |
+  A: Absolutely not! We do all the math for you. Just log in to your account and you'll see simple numbers:
 ---

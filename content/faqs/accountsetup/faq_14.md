@@ -1,7 +1,5 @@
 ---
-answer: 'A: Start with our Save+ fund - it''s perfect for beginners. Visit mahaana.com,
-  click ''Get Started'', and create your account with just your CNIC. You can start
-  with as little as PKR 1,000, and watch your money grow daily. It''s simple, stable,
-  and Shariah-compliant.'
-question: I'm completely new to investing - where do I start with Mahaana?
+question: "Can I start investing today?"
+answer: |
+  A: Yes! Visit https://portal.mahaana.com/auth/signup now to create your account. Once approved, you can make your first investment right away.
 ---

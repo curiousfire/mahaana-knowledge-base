@@ -1,6 +1,5 @@
 ---
-answer: 'A: Start with Save+ (MICF). It''s simpler to understand, has lower risk,
-  and gives steady returns. Once you''re comfortable, you can explore MIIETF to learn
-  about stock market investing.'
-question: I'm new to investing - which is easier to understand?
+question: "Do I have to invest regularly or can I invest once?"
+answer: |
+  A: It's completely up to you! You can:
 ---

@@ -1,6 +1,5 @@
 ---
-answer: 'A: No - you''ll get the actual monthly return. The annualized rate is just
-  to help you understand the yearly perspective. If we show 12% annualized, you might
-  get about 1% for one month (though actual returns can vary).'
-question: I invested for one month - will I get the full annualized return?
+question: "Does skipping my monthly investment affect my returns?"
+answer: |
+  A: Not at all! Your returns are based on what's already invested. The monthly investment plan you selected is completely optional - think of it more like a goal than a rule. You'll keep earning profits on your existing investment whether you add more money or not.
 ---

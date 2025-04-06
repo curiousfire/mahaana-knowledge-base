@@ -1,6 +1,5 @@
 ---
-answer: 'A: The expense ratio stays the same regardless of how much you invest - it''s
-  a percentage. Whether you invest PKR 10,000 or PKR 1,000,000, the percentage remains
-  the same.'
-question: Do I pay more expenses if I invest more money?
+question: "If returns are annualized, why do they change every month?"
+answer: |
+  A: Because we recalculate the annualized rate based on the latest performance. It's like a weather forecast that updates as conditions change - we're showing what a full year might look like based on current conditions.
 ---

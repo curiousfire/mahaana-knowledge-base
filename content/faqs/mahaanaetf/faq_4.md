@@ -1,4 +1,5 @@
 ---
-answer: 'A: See our complete growth history at www.mahaana.com/miietf#Performance.'
-question: What percentage growth has MIIETF shown?
+question: "When are MIIETF dividends paid?"
+answer: |
+  A: While dividends are usually announced annually in early July after our financial year ends (June 30), our fund manager has the flexibility to declare dividends more frequently - quarterly or half-yearly if they choose to do so.
 ---

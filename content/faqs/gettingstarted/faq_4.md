@@ -1,6 +1,5 @@
 ---
-answer: 'A: You get more units. When you invest more money, we divide your new investment
-  by that day''s NAV to give you additional units. Your existing units keep their
-  same value - they just continue growing as NAV increases daily.'
-question: When I invest more money, do I get more units or does my unit value increase?
+question: "How do I open an account?"
+answer: |
+  Signup using https://portal.mahaana.com/auth/signup
 ---

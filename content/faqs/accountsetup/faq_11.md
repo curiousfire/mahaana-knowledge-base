@@ -1,5 +1,5 @@
 ---
-answer: "A: You can directly verify Mahaana\u2019s credentials via the SECP's licensed\
-  \ entities list and CDC\u2019s trustee documentation for added assurance."
-question: "How can I verify that Mahaana\u2019s investment funds are genuine?"
+question: "I'm completely new to investing - where do I start with Mahaana?"
+answer: |
+  A: Start with our Save+ fund - it's perfect for beginners. Visit mahaana.com, click 'Get Started', and create your account with just your CNIC. You can start with as little as PKR 1,000, and watch your money grow daily. It's simple, stable, and Shariah-compliant.
 ---

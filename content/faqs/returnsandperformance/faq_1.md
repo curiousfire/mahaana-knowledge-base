@@ -1,5 +1,5 @@
 ---
-answer: Weekend profits aren't lost - they're just added to your account on Monday
-  by day end.
-question: What happens to profits on weekends?
+question: "Can I set up automatic monthly investments?"
+answer: |
+  Not yet. Right now, you'll need to make each investment manually. We're working on adding this feature.
 ---

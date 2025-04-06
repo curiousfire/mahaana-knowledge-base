@@ -1,5 +1,5 @@
 ---
-answer: 'A: No, MIIETF investments can''t be viewed on Mahaana''s website. You''ll
-  need to track these through your broker''s app or platform.'
-question: Can I see my MIIETF portfolio on Mahaana website like I can see MICF?
+question: "What are the returns of Save+/MICF?"
+answer: |
+  A: You can check our latest returns at www.mahaana.com/micf#Performance to see our up-to-date profit rates.
 ---

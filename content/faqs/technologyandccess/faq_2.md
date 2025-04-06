@@ -1,4 +1,5 @@
 ---
-answer: Signup using https://portal.mahaana.com/auth/signup
-question: How do I open an account?
+question: "Where can I find Fund Manager Reports (FMR)?"
+answer: |
+  A: Visit www.mahaana.com/micf, scroll to the bottom of the page, and click on the "Fund Manager Reports" tab.
 ---

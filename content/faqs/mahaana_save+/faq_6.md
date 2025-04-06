@@ -1,4 +1,5 @@
 ---
-answer: 'A: View our current and historical returns at www.mahaana.com/micf#Performance.'
-question: What's the profit rate for Mahaana Save+ (MICF)?
+question: "What's the monthly return rate of Save+?"
+answer: |
+  A: Check our latest rates at www.mahaana.com/micf#Performance for up-to-date return information.
 ---

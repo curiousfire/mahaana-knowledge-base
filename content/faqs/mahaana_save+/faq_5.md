@@ -1,5 +1,5 @@
 ---
-answer: 'A: You can check our latest returns at www.mahaana.com/micf#Performance to
-  see our up-to-date profit rates.'
-question: What are the returns of Save+/MICF?
+question: "What's the monthly return of MICF/Save+?"
+answer: |
+  A: Check our latest rates at www.mahaana.com/micf#Performance for up-to-date return information.
 ---

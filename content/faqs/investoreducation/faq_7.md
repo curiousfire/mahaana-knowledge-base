@@ -1,5 +1,5 @@
 ---
-answer: 'A: Not at all! When you see your returns or NAV, these are already net of
-  fees. We''ve kept it simple - what you see is what you get.'
-question: Do I need to calculate fees separately from my returns?
+question: "Everyone talks about investing but I feel lost - where do I even begin?"
+answer: |
+  A: Start with Save+! It's like dipping your toes in the investment pool from the shallow end:
 ---

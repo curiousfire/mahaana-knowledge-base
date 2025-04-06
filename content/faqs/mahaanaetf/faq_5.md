@@ -1,6 +1,5 @@
 ---
-answer: 'A: No hidden charges! All fees are included in MIIETF''s NAV which updates
-  daily. Check www.mahaana.com/miietf for complete fee details. The returns you see
-  are what you actually get - after all fees.'
-question: Are there hidden charges in MIIETF?
+question: "Are MIIETF dividends guaranteed?"
+answer: |
+  A: Dividends depend on the fund's performance. We're required to distribute at least 90% of the gains when we make them, but if there's no price increase between financial year ends, there might not be a dividend to distribute.
 ---

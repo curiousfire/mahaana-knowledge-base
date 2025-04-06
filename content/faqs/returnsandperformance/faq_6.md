@@ -1,6 +1,5 @@
 ---
-answer: 'A: Yes! While you can''t directly switch (since MIIETF requires a broker
-  account), you can always adjust your investment strategy by investing more in one
-  fund or the other as your needs change.'
-question: Can I switch between funds later?
+question: "Will these expenses eat up all my profits?"
+answer: |
+  A: Not at all! The returns shown on our website are what you actually get - after all expenses. For example, if you see 10% returns, that's what you're actually getting after all costs are paid.
 ---

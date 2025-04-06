@@ -1,5 +1,5 @@
 ---
-answer: 'A: Visit our signup page at https://portal.mahaana.com/auth/signup - it''s
-  quick and easy. You can start investing right after your account is approved.'
-question: How to open a Mahaana account?
+question: "I'm saving for my children's education in 10 years - which fund?"
+answer: |
+  A: With a 10-year horizon, you could consider MIIETF since you have time to ride out market volatility. Maybe start with a larger portion in MIIETF and gradually move to Save+ as you get closer to needing the money.
 ---

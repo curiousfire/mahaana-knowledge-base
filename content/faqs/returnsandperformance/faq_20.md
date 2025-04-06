@@ -1,7 +1,5 @@
 ---
-answer: 'A: Yes! Your daily profits automatically become part of your investment value.
-  When we calculate tomorrow''s profit, it''s based on your total value (initial investment
-  plus all accumulated profits), so you''re earning returns on your returns - that''s
-  compounding in action!'
-question: Is my profit automatically reinvested?
+question: "I see profits in my account - why can't I withdraw just that?"
+answer: |
+  A: Your profits aren't sitting separately - they're part of your units. Let's say you have PKR 50,000 investment and PKR 10,000 profits. This means every PKR 100 in your account has PKR 83.33 of investment and PKR 16.67 of profit. When you withdraw any amount, it will split in exactly this same ratio - it's like each rupee contains both investment and profit.
 ---

@@ -1,5 +1,5 @@
 ---
-answer: 'A: While future returns can''t be guaranteed, you can see our track record
-  at www.mahaana.com/micf#Performance.'
-question: How much will I earn in Mahaana Islamic Cash Fund (Save+)?
+question: "What's the annual yield of Save+?"
+answer: |
+  A: Check our yearly returns at www.mahaana.com/micf#Performance.
 ---

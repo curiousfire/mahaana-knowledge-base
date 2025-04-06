@@ -1,6 +1,5 @@
 ---
-answer: 'A: We make it easy! A few weeks before Ramadan, you''ll receive both an email
-  and app notification with a link to submit your Zakat exemption online. No need
-  to worry about this now - we''ll guide you through the process when the time comes.'
-question: How can I submit my Zakat exemption?
+question: "Do I need to submit Zakat exemption right now?"
+answer: |
+  A: Not at all! You can invest freely now. We'll contact you weeks before Ramadan about Zakat. That's the only time you'll need to think about exemptions.
 ---

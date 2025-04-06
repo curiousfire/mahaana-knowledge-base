@@ -1,6 +1,5 @@
 ---
-answer: 'A: Both show you how expenses change over time - MTD (Month-to-Date) shows
-  current month''s costs, while YTD (Year-to-Date) shows the average for the year
-  so far. Both are important, but YTD gives you a better long-term picture.'
-question: I see MTD and YTD expense ratios - which one matters?
+question: "I invested for one month - will I get the full annualized return?"
+answer: |
+  A: No - you'll get the actual monthly return. The annualized rate is just to help you understand the yearly perspective. If we show 12% annualized, you might get about 1% for one month (though actual returns can vary).
 ---

@@ -1,5 +1,5 @@
 ---
-answer: Don't worry - once your withdrawal is verified, it can take up to one business
-  day to appear in your bank account.
-question: I made a withdrawal but don't see it in my bank account yet?
+question: "What happens if I forget my password?"
+answer: |
+  A: Easy to fix! Just click "Forgot Password" on the login page. We'll send a reset link to your registered email. For extra security, you'll need to verify through OTP too.
 ---

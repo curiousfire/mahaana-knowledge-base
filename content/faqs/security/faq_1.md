@@ -1,6 +1,5 @@
 ---
-answer: 'A: Yes! We''re regulated by SECP, your money is held by CDC (Central Depository
-  Company) as trustee, and we only make Shariah-compliant investments. Plus, you can
-  check your investment value and withdraw anytime through our portal.'
-question: Is my money safe with Mahaana?
+question: "I want the safest investment option?"
+answer: |
+  A: Definitely Save+ (MICF). It's our money market fund that invests in stable Islamic instruments like bank deposits. While all investments carry some risk, Save+ is designed to be low-risk with steady returns.
 ---

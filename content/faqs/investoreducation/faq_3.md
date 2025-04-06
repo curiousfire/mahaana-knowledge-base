@@ -1,7 +1,5 @@
 ---
-answer: 'A: Start with Save+! It''s like dipping your toes in the investment pool
-  from the shallow end: Sign up (just need your CNIC) Add a small amount like PKR
-  1,000 Watch it grow daily Learn at your own pace Think of it as a ''beginner-friendly
-  mode'' for investing!'
-question: Everyone talks about investing but I feel lost - where do I even begin?
+question: "What if I make a mistake while investing?"
+answer: |
+  A: Don't worry! Our system has safety checks to prevent mistakes. If you accidentally enter wrong information, our team will help fix it. Plus, all important actions need OTP verification for security.
 ---

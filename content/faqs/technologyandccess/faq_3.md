@@ -1,6 +1,5 @@
 ---
-answer: 'A: Unlike a bank account which typically gives low returns, we invest your
-  money to earn better profits. Our Save+ fund has historically given better returns
-  than bank savings accounts, while still keeping your money easily accessible.'
-question: How is this different from keeping money in my bank account?
+question: "What happens to my investment when I make withdrawals?"
+answer: |
+  A: Every withdrawal takes a proportional amount from both your investment and profits. If you start with PKR 50,000 and earn PKR 10,000 in profits, your total PKR 60,000 is about 83% investment and 17% profit. Any withdrawal will maintain this same ratio. The good news is you only pay tax on the profit portion of your withdrawal.
 ---

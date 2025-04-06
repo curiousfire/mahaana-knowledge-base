@@ -1,6 +1,5 @@
 ---
-answer: 'A: Check our returns at www.mahaana.com/micf#Performance. What interest/profit
-  rate does Save+ give?'' A: You can check our latest returns at www.mahaana.com/micf#Performance
-  to see our up-to-date profit rates.'
-question: What return does MICF (Mahaana Save+) give?
+question: "What fees do you charge on Save+/MICF?"
+answer: |
+  A: All our fees are transparently shown at www.mahaana.com/micf. The returns you see already include these fees since they're built into the daily NAV calculations.
 ---

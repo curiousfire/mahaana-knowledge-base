@@ -1,6 +1,5 @@
 ---
-answer: 'A: Before upgrading your account, you have two limits: * Daily limit: Maximum
-  PKR 400,000 per day * Total limit: Maximum PKR 1,000,000 in total deposits Once
-  you upgrade your account, both these limits are removed.'
-question: What are the investment limits before account upgrade?
+question: "How quickly can I get started? Is there lots of paperwork?"
+answer: |
+  A: You can start today! Everything is online - no paperwork needed. Just your CNIC, bank account details, and a few minutes of your time. Once your account is approved (usually same day), you can make your first investment right away.
 ---

@@ -1,5 +1,5 @@
 ---
-answer: 'A: Not at all! You can invest freely now. We''ll contact you weeks before
-  Ramadan about Zakat. That''s the only time you''ll need to think about exemptions.'
-question: Do I need to submit Zakat exemption right now?
+question: "What if I want to declare myself as Zakat exempt now?"
+answer: |
+  A: Since Zakat is only calculated and deducted on 1st Ramadan, you don't need to worry about this now. We'll reach out to all investors before Ramadan with clear instructions for submitting exemptions online.
 ---

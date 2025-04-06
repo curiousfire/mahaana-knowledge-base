@@ -1,6 +1,5 @@
 ---
-answer: 'A: Small changes in expense ratios are normal as fund costs can vary month
-  to month. What matters is that all these costs are already included in your returns
-  - you don''t need to calculate anything.'
-question: The expense ratio changed from last month - should I be worried?
+question: "Is my profit automatically reinvested?"
+answer: |
+  A: Yes! Your daily profits automatically become part of your investment value. When we calculate tomorrow's profit, it's based on your total value (initial investment plus all accumulated profits), so you're earning returns on your returns - that's compounding in action!
 ---
