@@ -2,15 +2,15 @@ const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
 
-const basePath = "./content/faqs";
+const basePath = path.join(__dirname, "content/faqs");
 const allFaqs = [];
 
-// Get all directories in the faqs folder
+// Get all directories (categories) in the faqs folder
 const categories = fs.readdirSync(basePath, { withFileTypes: true })
-  .filter(dirent => dirent.isDirectory())
-  .map(dirent => dirent.name);
+  .filter((dirent) => dirent.isDirectory())
+  .map((dirent) => dirent.name);
 
-// Process each category
+// Process each category folder
 categories.forEach((category) => {
   const folderPath = path.join(basePath, category);
   if (!fs.existsSync(folderPath)) return;
@@ -19,8 +19,17 @@ categories.forEach((category) => {
   files.forEach((file) => {
     if (!file.endsWith('.md')) return; // Only process markdown files
     
-    const content = fs.readFileSync(path.join(folderPath, file), "utf8");
-    const data = matter(content).data;
+    const filePath = path.join(folderPath, file);
+    const content = fs.readFileSync(filePath, "utf8");
+    const parsed = matter(content);
+    const data = parsed.data;
+    
+    // Warn if the file is missing question or answer frontmatter
+    if (!data.question || !data.answer) {
+      console.warn(`Warning: File ${filePath} is missing a question or answer.`);
+      return;
+    }
+    
     allFaqs.push({
       category: category.charAt(0).toUpperCase() + category.slice(1),
       question: data.question,
@@ -29,9 +38,13 @@ categories.forEach((category) => {
   });
 });
 
-// Ensure the public directory exists
-if (!fs.existsSync("public")) fs.mkdirSync("public");
+// Ensure the public directory exists (using recursive: true)
+const publicDir = path.join(__dirname, "public");
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
+}
 
 // Write the FAQ data to a JSON file
-fs.writeFileSync("./public/faq.json", JSON.stringify({ faqs: allFaqs }, null, 2));
+const jsonOutput = JSON.stringify({ faqs: allFaqs }, null, 2);
+fs.writeFileSync(path.join(publicDir, "faq.json"), jsonOutput, "utf8");
 console.log("✅ Generated faq.json");
