@@ -21,8 +21,14 @@ categories.forEach((category) => {
     
     const filePath = path.join(folderPath, file);
     const content = fs.readFileSync(filePath, "utf8");
-    const parsed = matter(content);
-    const data = parsed.data;
+    let data;
+    try {
+      const parsed = matter(content);
+      data = parsed.data;
+    } catch (error) {
+      console.error(`Error processing ${filePath}:`, error.message);
+      return;
+    }
     
     // Warn if the file is missing question or answer frontmatter
     if (!data.question || !data.answer) {
