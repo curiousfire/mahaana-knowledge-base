@@ -1,24 +1,346 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahaana Knowledge Base - Admin Panel</title>
     <!-- Add the Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      :root {
+        --primary: #4F46E5;
+        --primary-light: #818CF8;
+        --primary-dark: #4338CA;
+        --secondary: #10B981;
+        --dark: #1F2937;
+        --light: #F9FAFB;
+        --gray-light: #F3F4F6;
+        --gray: #E5E7EB;
+        --text: #374151;
+        --text-light: #6B7280;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      
+      body {
+        background-color: var(--light);
+      }
+      
+      /* Custom loader */
+      .custom-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+      
+      .loader-logo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+        background-color: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 32px;
+        font-weight: bold;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      
+      .loader-text {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--primary);
+        margin-top: 15px;
+      }
+      
+      .loader-spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid var(--gray-light);
+        border-top: 5px solid var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Login page customization */
+      .custom-login {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9998;
+      }
+      
+      .login-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        text-align: center;
+        max-width: 450px;
+        width: 90%;
+      }
+      
+      .login-logo {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+      
+      .login-message {
+        color: var(--text-light);
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+      
+      .login-btn {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .login-btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* CMS UI Improvements */
+      /* These styles will override Netlify CMS default styles */
+      .custom-cms-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 15px 30px;
+        background-color: var(--primary);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      
+      .cms-title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      
+      .cms-actions {
+        display: flex;
+        gap: 15px;
+      }
+      
+      .cms-btn {
+        background-color: rgba(255, 255, 255, 0.2);
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        color: white;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      
+      .cms-btn:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+      
+      .cms-logout {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Helper to hide elements */
+      .hidden {
+        display: none !important;
+      }
+      
+      /* CSS to enhance the CMS UI iframe */
+      .iframe-container {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+      }
+      
+      .cms-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
   </head>
   <body>
-    <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
+    <!-- Custom Loader -->
+    <div class="custom-loader" id="customLoader">
+      <div class="loader-logo">M</div>
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Loading Admin Panel...</div>
+    </div>
+    
+    <!-- Custom Login UI (will be shown if user is not logged in) -->
+    <div class="custom-login hidden" id="customLogin">
+      <div class="login-container">
+        <div class="login-logo">Mahaana Knowledge Base</div>
+        <p class="login-message">Welcome to the admin panel. Please log in to manage your FAQ content.</p>
+        <button class="login-btn" id="loginBtn">Log in with Netlify Identity</button>
+      </div>
+    </div>
+    
+    <!-- Custom Header for CMS (will be shown after login) -->
+    <div class="custom-cms-header hidden" id="cmsHeader">
+      <div class="cms-title">Mahaana Knowledge Base Admin</div>
+      <div class="cms-actions">
+        <button class="cms-btn" id="viewSiteBtn">View Site</button>
+        <button class="cms-btn cms-logout" id="logoutBtn">Log Out</button>
+      </div>
+    </div>
+    
+    <!-- Container for Netlify CMS -->
+    <div class="iframe-container hidden" id="cmsContainer"></div>
+    
+    <!-- Netlify CMS Script (will be loaded dynamically) -->
     <script>
-      // Initialize Netlify Identity
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
+      document.addEventListener('DOMContentLoaded', function() {
+        const customLoader = document.getElementById('customLoader');
+        const customLogin = document.getElementById('customLogin');
+        const cmsHeader = document.getElementById('cmsHeader');
+        const cmsContainer = document.getElementById('cmsContainer');
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const viewSiteBtn = document.getElementById('viewSiteBtn');
+        
+        // Function to show the loader
+        function showLoader() {
+          customLoader.classList.remove('hidden');
+        }
+        
+        // Function to hide the loader
+        function hideLoader() {
+          customLoader.style.opacity = '0';
+          setTimeout(() => {
+            customLoader.classList.add('hidden');
+            customLoader.style.opacity = '1';
+          }, 500);
+        }
+        
+        // Function to show login screen
+        function showLogin() {
+          customLogin.classList.remove('hidden');
+          cmsHeader.classList.add('hidden');
+          cmsContainer.classList.add('hidden');
+        }
+        
+        // Function to show CMS
+        function showCMS() {
+          customLogin.classList.add('hidden');
+          cmsHeader.classList.remove('hidden');
+          cmsContainer.classList.remove('hidden');
+          
+          // If the CMS hasn't been loaded yet, load it
+          if (!window.cmsLoaded) {
+            loadCMS();
           }
+        }
+        
+        // Function to load the Netlify CMS
+        function loadCMS() {
+          // Create a script element to load Netlify CMS
+          const script = document.createElement('script');
+          script.src = 'https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js';
+          script.onload = function() {
+            // The CMS script has loaded
+            window.cmsLoaded = true;
+            
+            // Allow some time for the CMS to initialize
+            setTimeout(hideLoader, 1000);
+            
+            // You can customize the CMS config here if needed
+            if (window.CMS) {
+              // Example: customize the CMS
+              window.CMS.registerPreviewStyle('/preview.css');
+            }
+          };
+          
+          // Add the script to the document
+          document.body.appendChild(script);
+        }
+        
+        // Check if the user is logged in
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on('init', user => {
+            if (user) {
+              // User is logged in, show the CMS
+              showCMS();
+            } else {
+              // User is not logged in, show the login screen
+              hideLoader();
+              showLogin();
+            }
+          });
+          
+          // Handle login events
+          window.netlifyIdentity.on('login', () => {
+            showLoader();
+            showCMS();
+          });
+          
+          // Handle logout events
+          window.netlifyIdentity.on('logout', () => {
+            showLogin();
+          });
+        }
+        
+        // Handle login button click
+        loginBtn.addEventListener('click', function() {
+          window.netlifyIdentity.open('login');
         });
-      }
+        
+        // Handle logout button click
+        logoutBtn.addEventListener('click', function() {
+          window.netlifyIdentity.logout();
+        });
+        
+        // Handle view site button click
+        viewSiteBtn.addEventListener('click', function() {
+          window.open('/', '_blank');
+        });
+      });
     </script>
   </body>
 </html>
