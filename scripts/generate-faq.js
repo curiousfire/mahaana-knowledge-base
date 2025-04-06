@@ -10,6 +10,24 @@ const categories = fs.readdirSync(basePath, { withFileTypes: true })
   .filter((dirent) => dirent.isDirectory())
   .map((dirent) => dirent.name);
 
+/**
+ * Formats an answer using a YAML block scalar if it contains problematic characters.
+ * This converts the answer so that inner quotes and colons don't break YAML parsing.
+ */
+function formatAnswer(answer) {
+  // Check if answer contains a newline, colon, or double quote that might cause issues
+  if (answer.includes("\n") || answer.includes(":") || answer.includes('"')) {
+    // Remove surrounding quotes if present
+    if (answer.startsWith('"') && answer.endsWith('"')) {
+      answer = answer.slice(1, -1);
+    }
+    // Use block scalar formatting (with >)
+    return ">\n  " + answer.replace(/\n/g, "\n  ");
+  }
+  // Otherwise, wrap in double quotes
+  return `"${answer}"`;
+}
+
 // Process each category folder
 categories.forEach((category) => {
   const folderPath = path.join(basePath, category);
@@ -21,31 +39,34 @@ categories.forEach((category) => {
     
     const filePath = path.join(folderPath, file);
     const content = fs.readFileSync(filePath, "utf8");
-    let data;
+    
     try {
       const parsed = matter(content);
-      data = parsed.data;
+      const data = parsed.data;
+      
+      // Warn if missing frontmatter keys
+      if (!data.question || !data.answer) {
+        console.warn(`Warning: File ${filePath} is missing a question or answer.`);
+        return;
+      }
+      
+      // Reformat the answer if needed
+      data.answer = formatAnswer(data.answer);
+      
+      allFaqs.push({
+        category: category.charAt(0).toUpperCase() + category.slice(1),
+        question: data.question,
+        answer: data.answer,
+      });
     } catch (error) {
       console.error(`Error processing ${filePath}:`, error.message);
-      return;
     }
-    
-    // Warn if the file is missing question or answer frontmatter
-    if (!data.question || !data.answer) {
-      console.warn(`Warning: File ${filePath} is missing a question or answer.`);
-      return;
-    }
-    
-    allFaqs.push({
-      category: category.charAt(0).toUpperCase() + category.slice(1),
-      question: data.question,
-      answer: data.answer,
-    });
   });
 });
 
 // Ensure the public directory exists (using recursive: true)
-const publicDir = path.join(__dirname, "public");
+const projectRoot = path.join(__dirname, "..");
+const publicDir = path.join(projectRoot, "public");
 if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir, { recursive: true });
 }
