@@ -1,32 +1,195 @@
 backend:
   name: git-gateway
   branch: main
-
 site_url: https://loquacious-blancmange-d6f58d.netlify.app
-
-media_folder: "static/img"
-public_folder: "/img"
-
+media_folder: static/img
+public_folder: /img
 collections:
-  # Only dynamic collections will be shown here after the build process
-  
-  # New collection to manage FAQ categories
   - name: faq_collections
-    label: "FAQ Categories"
-    folder: "content/faq_collections"
+    label: FAQ Categories
+    folder: content/faq_collections
     create: true
-    slug: "{{slug}}"
-    identifier_field: "name"
+    slug: '{{slug}}'
+    identifier_field: name
     fields:
-      - label: "Category Name"
-        name: "name"
-        widget: "string"
-        hint: "Name of the FAQ category (e.g., 'Payments', 'Security')"
-      - label: "Folder Name"
-        name: "folder"
-        widget: "string"
-        hint: "Folder name for this category (lowercase, no spaces, e.g., 'payments')"
-      - label: "Description"
-        name: "description"
-        widget: "text"
+      - label: Category Name
+        name: name
+        widget: string
+        hint: Name of the FAQ category (e.g., 'Payments', 'Security')
+      - label: Folder Name
+        name: folder
+        widget: string
+        hint: Folder name for this category (lowercase, no spaces, e.g., 'payments')
+      - label: Description
+        name: description
+        widget: text
         required: false
+  - name: accountsetup_faqs
+    label: Account Setup FAQs
+    folder: content/faqs/accountsetup
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: gettingstarted_faqs
+    label: Getting Started FAQs
+    folder: content/faqs/gettingstarted
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: investoreducation_faqs
+    label: Investor Education FAQs
+    folder: content/faqs/investoreducation
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: mahaanaetf_faqs
+    label: ' Mahaana ETF (MIIETF) FAQs'
+    folder: content/faqs/mahaanaetf
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: mahaanainvest_faqs
+    label: Mahaana Invest FAQs
+    folder: content/faqs/mahaanainvest
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: mahaanaretirement_faqs
+    label: Mahaana Retirement FAQs
+    folder: content/faqs/mahaanaretirement
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: mahaana_save+_faqs
+    label: Mahaana Save+ FAQs
+    folder: content/faqs/mahaana_save+
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: returnsandperformance_faqs
+    label: Returns & Performance FAQs
+    folder: content/faqs/returnsandperformance
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: security_faqs
+    label: Security FAQs
+    folder: content/faqs/security
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: shariahcompliance_faqs
+    label: Shariah Compliance FAQs
+    folder: content/faqs/shariahcompliance
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: taxesandzakat_faqs
+    label: Taxes & Zakat FAQs
+    folder: content/faqs/taxesandzakat
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: technologyandccess_faqs
+    label: ' Technology & Access FAQs'
+    folder: content/faqs/technologyandccess
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: withdrawalsanddeposits_faqs
+    label: Withdrawals & Deposits FAQs
+    folder: content/faqs/withdrawalsanddeposits
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
