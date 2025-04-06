@@ -1,5 +1,4 @@
 ---
-question: "Sample question 14 from mahaana_save+?"
-answer: >
-  This is a placeholder answer for FAQ 14 inside mahaana_save+. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: View our earning history and current rates at www.mahaana.com/micf#Performance.'
+question: How much does Save+ earn?
 ---

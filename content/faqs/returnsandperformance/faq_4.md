@@ -1,5 +1,6 @@
 ---
-question: "Sample question 4 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 4 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Historically, equity funds like MIIETF have given better long-term returns
+  than money market funds like Save+. But remember - higher returns mean higher risk.
+  MIIETF can go up and down a lot, while Save+ gives steadier, more predictable returns.'
+question: Which fund gives better returns?
 ---

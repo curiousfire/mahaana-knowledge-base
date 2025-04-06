@@ -1,5 +1,5 @@
 ---
-question: "Sample question 4 from shariahcompliance?"
-answer: >
-  This is a placeholder answer for FAQ 4 inside shariahcompliance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: For the Shariah compliance fatwa, scroll to the bottom of the MICF or
+  MIIETF pages and click on ''Shariah Compliance.'''
+question: Where can I find the Shariah compliance fatwa for Mahaana's funds?
 ---

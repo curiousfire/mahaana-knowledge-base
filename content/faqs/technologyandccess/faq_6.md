@@ -1,5 +1,5 @@
 ---
-question: "Sample question 6 from technologyandccess?"
-answer: >
-  This is a placeholder answer for FAQ 6 inside technologyandccess. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: No separate deductions! All fees are automatically included in the daily
+  NAV calculations. The unit prices and returns you see already account for all fees.'
+question: Are management fees deducted from my account separately?
 ---

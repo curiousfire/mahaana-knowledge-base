@@ -1,5 +1,6 @@
 ---
-question: "Sample question 6 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 6 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Yes! While you can''t directly switch (since MIIETF requires a broker
+  account), you can always adjust your investment strategy by investing more in one
+  fund or the other as your needs change.'
+question: Can I switch between funds later?
 ---

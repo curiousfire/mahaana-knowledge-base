@@ -1,5 +1,6 @@
 ---
-question: "Sample question 3 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 3 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Both work for monthly investing! Save+ (MICF) if you''re building an emergency
+  fund or saving for near-term goals. MIIETF if you''re young and saving for long-term
+  wealth - monthly investing actually helps smooth out market ups and downs.'
+question: I want to invest monthly - which fund is better?
 ---

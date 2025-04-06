@@ -1,5 +1,6 @@
 ---
-question: "Sample question 1 from shariahcompliance?"
-answer: >
-  This is a placeholder answer for FAQ 1 inside shariahcompliance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Don''t worry! You don''t need to understand complex Islamic finance terms.
+  We handle all that. Just know that your money is invested in a halal way, and you
+  get regular profits without dealing with interest.'
+question: What if I don't know anything about Islamic finance?
 ---

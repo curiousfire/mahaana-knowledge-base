@@ -1,5 +1,5 @@
 ---
-question: "Sample question 1 from technologyandccess?"
-answer: >
-  This is a placeholder answer for FAQ 1 inside technologyandccess. It uses proper YAML block formatting to avoid any parsing issues.
+answer: Don't worry - once your withdrawal is verified, it can take up to one business
+  day to appear in your bank account.
+question: I made a withdrawal but don't see it in my bank account yet?
 ---

@@ -1,5 +1,6 @@
 ---
-question: "Sample question 16 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 16 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: It makes it easier to compare! When everything is converted to yearly
+  rates, you can better understand what your money might do in the long run. It''s
+  like converting different currencies to one currency to compare prices better.'
+question: Why do you show annualized rates instead of actual monthly returns?
 ---

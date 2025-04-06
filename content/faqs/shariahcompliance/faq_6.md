@@ -1,5 +1,6 @@
 ---
-question: "Sample question 6 from shariahcompliance?"
-answer: >
-  This is a placeholder answer for FAQ 6 inside shariahcompliance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: The Shariah Supervisory Council at Al-Hilal Shariah Advisors reviews and
+  approves all Mahaana funds for compliance, ensuring they meet Islamic investment
+  principles.'
+question: Who reviews and approves Mahaana's Shariah compliance?
 ---

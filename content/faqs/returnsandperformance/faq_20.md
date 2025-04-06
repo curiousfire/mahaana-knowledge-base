@@ -1,5 +1,7 @@
 ---
-question: "Sample question 20 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 20 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Yes! Your daily profits automatically become part of your investment value.
+  When we calculate tomorrow''s profit, it''s based on your total value (initial investment
+  plus all accumulated profits), so you''re earning returns on your returns - that''s
+  compounding in action!'
+question: Is my profit automatically reinvested?
 ---

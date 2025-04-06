@@ -1,5 +1,6 @@
 ---
-question: "Sample question 5 from mahaanaetf?"
-answer: >
-  This is a placeholder answer for FAQ 5 inside mahaanaetf. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: No hidden charges! All fees are included in MIIETF''s NAV which updates
+  daily. Check www.mahaana.com/miietf for complete fee details. The returns you see
+  are what you actually get - after all fees.'
+question: Are there hidden charges in MIIETF?
 ---

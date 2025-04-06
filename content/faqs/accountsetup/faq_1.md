@@ -1,5 +1,6 @@
 ---
-question: "Sample question 1 from accountsetup?"
-answer: >
-  This is a placeholder answer for FAQ 1 inside accountsetup. It uses proper YAML block formatting to avoid any parsing issues.
+answer: When you first start with us, yes - you can move up to PKR 400,000 per day
+  (PKR 800,000 total) for both deposits and withdrawals. After your account is upgraded,
+  these limits go away. The daily limits reset at midnight.
+question: Is there a limit on how much I can move in and out?
 ---

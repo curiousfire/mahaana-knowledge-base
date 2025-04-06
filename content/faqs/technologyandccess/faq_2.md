@@ -1,5 +1,4 @@
 ---
-question: "Sample question 2 from technologyandccess?"
-answer: >
-  This is a placeholder answer for FAQ 2 inside technologyandccess. It uses proper YAML block formatting to avoid any parsing issues.
+answer: Signup using https://portal.mahaana.com/auth/signup
+question: How do I open an account?
 ---

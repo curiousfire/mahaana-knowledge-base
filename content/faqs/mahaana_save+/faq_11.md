@@ -1,5 +1,6 @@
 ---
-question: "Sample question 11 from mahaana_save+?"
-answer: >
-  This is a placeholder answer for FAQ 11 inside mahaana_save+. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Check our returns at www.mahaana.com/micf#Performance. What interest/profit
+  rate does Save+ give?'' A: You can check our latest returns at www.mahaana.com/micf#Performance
+  to see our up-to-date profit rates.'
+question: What return does MICF (Mahaana Save+) give?
 ---

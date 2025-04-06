@@ -1,5 +1,4 @@
 ---
-question: "Sample question 3 from mahaanaetf?"
-answer: >
-  This is a placeholder answer for FAQ 3 inside mahaanaetf. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: View our current and historical returns at www.mahaana.com/miietf#Performance.'
+question: What is the return percentage of MIIETF?
 ---

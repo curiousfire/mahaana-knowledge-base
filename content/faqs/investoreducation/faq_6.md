@@ -1,5 +1,6 @@
 ---
-question: "Sample question 6 from investoreducation?"
-answer: >
-  This is a placeholder answer for FAQ 6 inside investoreducation. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Our management fee is calculated and deducted daily in the NAV calculation.
+  This means the returns you see on our website are your actual returns - all fees
+  are already accounted for.'
+question: How is the management fee calculated?
 ---

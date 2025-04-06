@@ -1,5 +1,5 @@
 ---
-question: "Sample question 2 from accountsetup?"
-answer: >
-  This is a placeholder answer for FAQ 2 inside accountsetup. It uses proper YAML block formatting to avoid any parsing issues.
+answer: You can start with just PKR 1,000. After that, you can add as little as PKR
+  500 at a time.
+question: What's the smallest amount I can start with?
 ---

@@ -1,5 +1,5 @@
 ---
-question: "Sample question 1 from mahaanainvest?"
-answer: >
-  This is a placeholder answer for FAQ 1 inside mahaanainvest. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'We currently offer two investment options: Mahaana Islamic Cash Fund (for
+  steady, liquid returns) Mahaana Islamic Index ETF (for stock market investment)'
+question: What can I invest in with Mahaana?
 ---

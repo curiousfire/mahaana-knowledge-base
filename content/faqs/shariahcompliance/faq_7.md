@@ -1,5 +1,5 @@
 ---
-question: "Sample question 7 from shariahcompliance?"
-answer: >
-  This is a placeholder answer for FAQ 7 inside shariahcompliance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Mahaana''s funds are reviewed quarterly to ensure ongoing compliance with
+  Shariah guidelines. This is part of a continuous process to maintain high standards.'
+question: How often is Shariah compliance reviewed?
 ---

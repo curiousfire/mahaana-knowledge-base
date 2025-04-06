@@ -1,5 +1,5 @@
 ---
-question: "Sample question 1 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 1 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: Weekend profits aren't lost - they're just added to your account on Monday
+  by day end.
+question: What happens to profits on weekends?
 ---

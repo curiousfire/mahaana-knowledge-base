@@ -1,5 +1,5 @@
 ---
-question: "Sample question 6 from taxesandzakat?"
-answer: >
-  This is a placeholder answer for FAQ 6 inside taxesandzakat. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Your tax status is refreshed every Monday based on the ATL list, impacting
+  any upcoming withdrawals.'
+question: How often is my tax status updated?
 ---

@@ -1,5 +1,6 @@
 ---
-question: "Sample question 14 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 14 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Small changes in expense ratios are normal as fund costs can vary month
+  to month. What matters is that all these costs are already included in your returns
+  - you don''t need to calculate anything.'
+question: The expense ratio changed from last month - should I be worried?
 ---

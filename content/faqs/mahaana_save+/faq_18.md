@@ -1,5 +1,5 @@
 ---
-question: "Sample question 18 from mahaana_save+?"
-answer: >
-  This is a placeholder answer for FAQ 18 inside mahaana_save+. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: All our fees are transparently shown at www.mahaana.com/micf. The returns
+  you see already include these fees since they''re built into the daily NAV calculations.'
+question: What fees do you charge on Save+/MICF?
 ---

@@ -1,5 +1,6 @@
 ---
-question: "Sample question 9 from shariahcompliance?"
-answer: >
-  This is a placeholder answer for FAQ 9 inside shariahcompliance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Yes, detailed certifications, including fatwas and approval letters, are
+  accessible at the bottom of the Mahaana MICF and MIIETF pages. Just click on the
+  ''Shariah Compliance'' section for documentation.'
+question: Can I view the Shariah compliance certification?
 ---

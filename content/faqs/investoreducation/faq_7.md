@@ -1,5 +1,5 @@
 ---
-question: "Sample question 7 from investoreducation?"
-answer: >
-  This is a placeholder answer for FAQ 7 inside investoreducation. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Not at all! When you see your returns or NAV, these are already net of
+  fees. We''ve kept it simple - what you see is what you get.'
+question: Do I need to calculate fees separately from my returns?
 ---

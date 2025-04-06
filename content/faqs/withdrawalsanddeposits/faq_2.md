@@ -1,5 +1,5 @@
 ---
-question: "Sample question 2 from withdrawalsanddeposits?"
-answer: >
-  This is a placeholder answer for FAQ 2 inside withdrawalsanddeposits. It uses proper YAML block formatting to avoid any parsing issues.
+answer: Not yet. Right now, you'll need to make each investment manually. We're working
+  on adding this feature.
+question: Can I set up automatic monthly investments?
 ---

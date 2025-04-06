@@ -1,5 +1,6 @@
 ---
-question: "Sample question 5 from taxesandzakat?"
-answer: >
-  This is a placeholder answer for FAQ 5 inside taxesandzakat. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Since Zakat is only calculated and deducted on 1st Ramadan, you don''t
+  need to worry about this now. We''ll reach out to all investors before Ramadan with
+  clear instructions for submitting exemptions online.'
+question: What if I want to declare myself as Zakat exempt now?
 ---

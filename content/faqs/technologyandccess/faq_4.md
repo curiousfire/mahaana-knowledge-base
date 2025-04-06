@@ -1,5 +1,6 @@
 ---
-question: "Sample question 4 from technologyandccess?"
-answer: >
-  This is a placeholder answer for FAQ 4 inside technologyandccess. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Your money is completely safe because: It''s held by CDC as trustee, not
+  by Mahaana Your investment is separate from our company''s assets All regulated
+  by SECP You can withdraw your money anytime, regardless of what happens to Mahaana.'
+question: What if Mahaana shuts down - what happens to my money?
 ---

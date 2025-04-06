@@ -1,5 +1,6 @@
 ---
-question: "Sample question 21 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 21 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Your profits are already working for you! The profit you see is included
+  in your total investment value, and you''re earning returns on the whole amount.
+  There''s no separate ''reinvestment'' needed - it happens automatically every day.'
+question: Why do I see profit in my account - isn't it supposed to be reinvested?
 ---

@@ -1,5 +1,6 @@
 ---
-question: "Sample question 1 from investoreducation?"
-answer: >
-  This is a placeholder answer for FAQ 1 inside investoreducation. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Not at all! We''ve made everything simple. Just sign up online, add money,
+  and we handle the investing part. Our portal shows everything clearly, and our support
+  team is always here to help.'
+question: Do I need any special knowledge to invest?
 ---

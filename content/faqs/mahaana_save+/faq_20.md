@@ -1,5 +1,6 @@
 ---
-question: "Sample question 20 from mahaana_save+?"
-answer: >
-  This is a placeholder answer for FAQ 20 inside mahaana_save+. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Save+ is the portal used to invest, while MICF (Mahaana Islamic Cash Fund)
+  is the actual fund where your money goes. Right now, Save+ is exclusively used to
+  invest in MICF.'
+question: "What\u2019s the difference between Save+ and MICF?"
 ---

@@ -1,5 +1,6 @@
 ---
-question: "Sample question 8 from mahaanaetf?"
-answer: >
-  This is a placeholder answer for FAQ 8 inside mahaanaetf. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: While dividends are usually announced annually in early July after our
+  financial year ends (June 30), our fund manager has the flexibility to declare dividends
+  more frequently - quarterly or half-yearly if they choose to do so.'
+question: When are MIIETF dividends paid?
 ---

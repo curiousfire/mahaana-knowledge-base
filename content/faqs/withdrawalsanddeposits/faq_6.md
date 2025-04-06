@@ -1,5 +1,13 @@
 ---
-question: "Sample question 6 from withdrawalsanddeposits?"
-answer: >
-  This is a placeholder answer for FAQ 6 inside withdrawalsanddeposits. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Let me share two great ways to grow your money with us! For a lower-risk
+  option, our Save+ fund (MICF) is perfect - you earn daily profits, and your money
+  stays easily accessible. Think of it as a smarter alternative to a savings account.
+  If you''re looking for potentially higher returns and can invest for the longer
+  term, our MIIETF lets you participate in the stock market in a Shariah-compliant
+  way. You can even use both - maybe keep your emergency funds in Save+ while building
+  long-term wealth through MIIETF. The key is choosing what matches your goals and
+  comfort with risk. Would you like me to add: More strategy questions? Questions
+  about combining both funds? Specific scenarios for different types of investors?
+  Questions about investment timing?'
+question: How can I make money with Mahaana?
 ---

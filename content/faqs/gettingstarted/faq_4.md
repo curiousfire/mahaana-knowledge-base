@@ -1,5 +1,6 @@
 ---
-question: "Sample question 4 from gettingstarted?"
-answer: >
-  This is a placeholder answer for FAQ 4 inside gettingstarted. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: You get more units. When you invest more money, we divide your new investment
+  by that day''s NAV to give you additional units. Your existing units keep their
+  same value - they just continue growing as NAV increases daily.'
+question: When I invest more money, do I get more units or does my unit value increase?
 ---

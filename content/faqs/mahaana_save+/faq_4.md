@@ -1,5 +1,5 @@
 ---
-question: "Sample question 4 from mahaana_save+?"
-answer: >
-  This is a placeholder answer for FAQ 4 inside mahaana_save+. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: No, MIIETF investments can''t be viewed on Mahaana''s website. You''ll
+  need to track these through your broker''s app or platform.'
+question: Can I see my MIIETF portfolio on Mahaana website like I can see MICF?
 ---

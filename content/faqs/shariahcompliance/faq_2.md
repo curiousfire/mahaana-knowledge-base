@@ -1,5 +1,6 @@
 ---
-question: "Sample question 2 from shariahcompliance?"
-answer: >
-  This is a placeholder answer for FAQ 2 inside shariahcompliance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: "A: Yes, Mahaana\u2019s funds follow strict Shariah guidelines as verified\
+  \ by our Shariah Supervisory Council, which includes Mufti Irshad Ahmad Aijaz and\
+  \ Faraz Younus Bandukda, CFA, from Al-Hilal Shariah Advisors."
+question: Is Mahaana Shariah-compliant?
 ---

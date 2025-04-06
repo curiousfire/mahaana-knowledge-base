@@ -1,5 +1,6 @@
 ---
-question: "Sample question 7 from withdrawalsanddeposits?"
-answer: >
-  This is a placeholder answer for FAQ 7 inside withdrawalsanddeposits. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Don''t worry! Our system is designed to catch mistakes. Plus, our team
+  checks every transaction. If something looks wrong, we''ll contact you right away
+  to fix it. Your money stays safe even if you make a typing mistake.'
+question: What if I make a mistake while depositing money?
 ---

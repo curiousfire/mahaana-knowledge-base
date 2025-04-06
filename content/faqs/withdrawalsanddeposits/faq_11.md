@@ -1,5 +1,5 @@
 ---
-question: "Sample question 11 from withdrawalsanddeposits?"
-answer: >
-  This is a placeholder answer for FAQ 11 inside withdrawalsanddeposits. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Currently, automatic monthly investments are not available. Each investment
+  must be made manually as direct debit isn''t supported. ________________'
+question: Can I set up automatic monthly investments?
 ---

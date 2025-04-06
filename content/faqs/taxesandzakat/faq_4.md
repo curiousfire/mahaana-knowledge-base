@@ -1,5 +1,5 @@
 ---
-question: "Sample question 4 from taxesandzakat?"
-answer: >
-  This is a placeholder answer for FAQ 4 inside taxesandzakat. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Not at all! You can invest freely now. We''ll contact you weeks before
+  Ramadan about Zakat. That''s the only time you''ll need to think about exemptions.'
+question: Do I need to submit Zakat exemption right now?
 ---

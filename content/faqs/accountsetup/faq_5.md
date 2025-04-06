@@ -1,5 +1,5 @@
 ---
-question: "Sample question 5 from accountsetup?"
-answer: >
-  This is a placeholder answer for FAQ 5 inside accountsetup. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Start with our Save+ fund! It''s perfect for beginners because: Low risk
+  Start with just PKR 1,000 Withdraw anytime Easy to understand Daily profits'
+question: I'm completely new to investing - where should I start?
 ---

@@ -1,5 +1,4 @@
 ---
-question: "Sample question 6 from mahaana_save+?"
-answer: >
-  This is a placeholder answer for FAQ 6 inside mahaana_save+. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: View our current and historical returns at www.mahaana.com/micf#Performance.'
+question: What's the profit rate for Mahaana Save+ (MICF)?
 ---

@@ -1,5 +1,5 @@
 ---
-question: "Sample question 5 from withdrawalsanddeposits?"
-answer: >
-  This is a placeholder answer for FAQ 5 inside withdrawalsanddeposits. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: You can see everything in your online account: Daily profit updates All
+  transactions Current investment value Bank-verified statements'
+question: How do I know my money is actually invested?
 ---

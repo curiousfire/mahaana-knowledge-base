@@ -1,5 +1,5 @@
 ---
-question: "Sample question 1 from withdrawalsanddeposits?"
-answer: >
-  This is a placeholder answer for FAQ 1 inside withdrawalsanddeposits. It uses proper YAML block formatting to avoid any parsing issues.
+answer: It takes 1-2 business days. We process everything as quickly as possible to
+  keep your money working.
+question: How long will my deposit or withdrawal take?
 ---

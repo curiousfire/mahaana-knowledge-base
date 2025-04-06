@@ -1,5 +1,6 @@
 ---
-question: "Sample question 8 from security?"
-answer: >
-  This is a placeholder answer for FAQ 8 inside security. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Absolutely! We''re regulated by SECP (like banks are regulated by State
+  Bank), your money is held by CDC as trustee, and we only make Shariah-compliant
+  investments. Plus, you can track every rupee 24/7 through your online account.'
+question: Is my money safe with Mahaana?
 ---

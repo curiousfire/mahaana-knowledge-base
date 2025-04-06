@@ -1,5 +1,6 @@
 ---
-question: "Sample question 26 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 26 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: In Save+ (MICF), NAV is the price of one unit. They''re connected - NAV
+  tells you what each unit is worth. And remember, in Save+, this value only goes
+  up each day since it''s a very low-risk money market fund.'
+question: What's the difference between NAV and unit - aren't they the same thing?
 ---

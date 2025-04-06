@@ -1,5 +1,6 @@
 ---
-question: "Sample question 14 from withdrawalsanddeposits?"
-answer: >
-  This is a placeholder answer for FAQ 14 inside withdrawalsanddeposits. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: In such an event, the assets in the fund are sold, and the proceeds are
+  distributed to all investors according to their portion of the fund at the prevailing
+  NAV, after covering any final expenses.'
+question: How would I get my money back if Mahaana were wound up?
 ---

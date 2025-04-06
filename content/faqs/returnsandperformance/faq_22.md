@@ -1,5 +1,8 @@
 ---
-question: "Sample question 22 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 22 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Not at all! The monthly plan you selected is just a suggestion, not a
+  commitment. You can invest whenever you want, skip months, or invest different amounts
+  - it''s totally flexible. Your profits are earned on whatever amount you have invested,
+  whether you make regular deposits or not.'
+question: I selected a monthly investment plan when opening my account - do I have
+  to stick to it to get profits?
 ---

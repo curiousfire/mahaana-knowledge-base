@@ -1,5 +1,6 @@
 ---
-question: "Sample question 17 from mahaana_save+?"
-answer: >
-  This is a placeholder answer for FAQ 17 inside mahaana_save+. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Having a balanced approach often makes sense - some money in Save+ (MICF)
+  for stability and regular needs, and some in MIIETF for long-term growth. The exact
+  split depends on your age, goals, and risk tolerance.'
+question: Should I invest in both MICF and MIIETF?
 ---

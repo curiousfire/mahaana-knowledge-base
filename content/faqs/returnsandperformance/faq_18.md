@@ -1,5 +1,6 @@
 ---
-question: "Sample question 18 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 18 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Because we recalculate the annualized rate based on the latest performance.
+  It''s like a weather forecast that updates as conditions change - we''re showing
+  what a full year might look like based on current conditions.'
+question: If returns are annualized, why do they change every month?
 ---

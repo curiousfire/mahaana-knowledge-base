@@ -1,5 +1,6 @@
 ---
-question: "Sample question 19 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 19 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: No, the unit-based system means withdrawals are proportional. This means
+  both your initial investment and profits are withdrawn together; separating them
+  is not possible.'
+question: Can I withdraw only my profits?
 ---

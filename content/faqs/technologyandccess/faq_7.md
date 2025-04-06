@@ -1,5 +1,6 @@
 ---
-question: "Sample question 7 from technologyandccess?"
-answer: >
-  This is a placeholder answer for FAQ 7 inside technologyandccess. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: A Mahaana app is currently in development and is expected to be released
+  within a month. Until then, you can use our fully functional web portal , https://portal.mahaana.com/,
+  accessible via any browser.'
+question: Is there a Mahaana mobile app available?
 ---

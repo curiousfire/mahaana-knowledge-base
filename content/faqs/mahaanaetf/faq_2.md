@@ -1,5 +1,5 @@
 ---
-question: "Sample question 2 from mahaanaetf?"
-answer: >
-  This is a placeholder answer for FAQ 2 inside mahaanaetf. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: The minimum investment is 500 shares. To calculate the minimum amount
+  needed in rupees, multiply 500 by the current share price.'
+question: What's the minimum investment for MIIETF?
 ---

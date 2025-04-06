@@ -1,5 +1,5 @@
 ---
-question: "Sample question 8 from technologyandccess?"
-answer: >
-  This is a placeholder answer for FAQ 8 inside technologyandccess. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Verification charges are processed quarterly by the CDC and appear in
+  your account statement after the end of each quarter.'
+question: When will I see verification charges on my account?
 ---

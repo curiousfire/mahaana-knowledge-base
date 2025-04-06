@@ -1,5 +1,6 @@
 ---
-question: "Sample question 12 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 12 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: The expense ratio stays the same regardless of how much you invest - it''s
+  a percentage. Whether you invest PKR 10,000 or PKR 1,000,000, the percentage remains
+  the same.'
+question: Do I pay more expenses if I invest more money?
 ---

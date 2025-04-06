@@ -1,5 +1,5 @@
 ---
-question: "Sample question 5 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 5 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Save+ (MICF) is perfect for emergency funds. You get better returns than
+  a regular savings account, while keeping your money easily accessible and stable.'
+question: Which fund is better for my emergency fund?
 ---

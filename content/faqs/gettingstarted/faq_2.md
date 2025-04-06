@@ -1,5 +1,5 @@
 ---
-question: "Sample question 2 from gettingstarted?"
-answer: >
-  This is a placeholder answer for FAQ 2 inside gettingstarted. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Visit www.mahaana.com/micf, scroll to the bottom of the page, and click
+  on the ''Fund Manager Reports'' tab.'
+question: Where can I find Fund Manager Reports (FMR)?
 ---

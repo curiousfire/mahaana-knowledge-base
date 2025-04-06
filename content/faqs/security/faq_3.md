@@ -1,5 +1,6 @@
 ---
-question: "Sample question 3 from security?"
-answer: >
-  This is a placeholder answer for FAQ 3 inside security. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: We take security very seriously: All withdrawals only go to your registered
+  bank account Every transaction needs OTP verification Multiple security layers protect
+  your account Regular security audits'
+question: Can someone steal my money?
 ---

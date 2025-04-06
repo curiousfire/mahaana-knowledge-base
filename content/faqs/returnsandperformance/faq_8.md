@@ -1,5 +1,5 @@
 ---
-question: "Sample question 8 from returnsandperformance?"
-answer: >
-  This is a placeholder answer for FAQ 8 inside returnsandperformance. It uses proper YAML block formatting to avoid any parsing issues.
+answer: 'A: Think of expense ratio as the total cost of running the fund, shown as
+  a percentage'
+question: What exactly is an expense ratio - explain it simply?
 ---
