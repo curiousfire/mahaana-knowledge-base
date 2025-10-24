@@ -1,5 +1,5 @@
 ---
-question: What's the maximum age until one can invest in this fund?
+question: What's the maximum age until one can invest in the retirement fund?
 answer: The maximum age until which you can invest in the MAHAANA IGI ISLAMIC
   RETIREMENT FUND is 70 years. According to the Voluntary Pension System (VPS)
   Rules, participants can continue making contributions until their chosen
