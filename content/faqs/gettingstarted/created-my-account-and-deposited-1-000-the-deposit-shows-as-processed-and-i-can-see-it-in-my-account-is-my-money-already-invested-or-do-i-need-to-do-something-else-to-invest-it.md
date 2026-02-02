@@ -1,5 +1,5 @@
 ---
-question: created my account and deposited 1,000. The deposit shows as
+question: created my account and deposited 5,000. The deposit shows as
   "processed" and I can see it in my account. Is my money already invested or do
   I need to do something else to invest it?
 answer: >-
