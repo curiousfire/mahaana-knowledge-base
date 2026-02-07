@@ -8,5 +8,5 @@ answer: >-
   broker's platform or app.
 
 
-  Good news: Mahaana is launching a new product called "Mahaana Invest" between June-August 2025 that will allow you to invest in ETFs directly through our portal and track those investments within the Mahaana ecosystem. This feature will only display ETF purchases made through the Mahaana platform.
+  Good news: Mahaana is launching a new product called "Mahaana Invest" between June-August 2026 that will allow you to invest in ETFs directly through our portal and track those investments within the Mahaana ecosystem. This feature will only display ETF purchases made through the Mahaana platform.
 ---
