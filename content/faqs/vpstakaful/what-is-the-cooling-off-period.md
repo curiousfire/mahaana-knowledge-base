@@ -1,5 +1,5 @@
 ---
-question: What is the cooling-off period?
+question: What is the cooling-off period for VPS Takaful coverage?
 answer: >
   A 90-day cooling-off period applies when your insurance is first activated.
   During this time your coverage is building but is not yet payable. From Day 91

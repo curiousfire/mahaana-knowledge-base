@@ -1,5 +1,5 @@
 ---
-question: At what age am I no longer eligible?
+question: At what age am I no longer eligible for VPS Takaful coverage?
 answer: >
   Insurance is available to VPS customers under 55 years of age. Once you turn
   55 you cannot enrol or re-enrol. However, if you enrolled before turning 55,

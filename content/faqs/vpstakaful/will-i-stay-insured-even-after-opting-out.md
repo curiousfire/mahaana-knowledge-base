@@ -1,5 +1,5 @@
 ---
-question: Will I stay insured even after opting out?
+question: Will I stay insured under VPS Takaful even after opting out?
 answer: >
   Yes, your existing coverage does not end immediately when you opt out. Each
   deposit you made keeps your coverage active for 12 months from that deposit

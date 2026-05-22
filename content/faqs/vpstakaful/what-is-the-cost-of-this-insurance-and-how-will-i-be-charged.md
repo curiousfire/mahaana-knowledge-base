@@ -1,5 +1,5 @@
 ---
-question: What is the cost of this insurance and how will I be charged?
+question: What is the cost of the VPS Takaful insurance and how will I be charged?
 answer: >
   There is no separate fee or monthly premium. A small 2% fee called FEL
   (Front-End Load) is automatically included in each deposit you make while you

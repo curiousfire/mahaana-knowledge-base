@@ -1,5 +1,5 @@
 ---
-question: How to file a claim?
+question: How do I file a VPS Takaful insurance claim?
 answer: >
   In the unfortunate event of a customer's death, their registered beneficiary
   can file a claim with IGI Life. Please note that a 90-day cooling-off period

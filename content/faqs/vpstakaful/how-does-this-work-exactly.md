@@ -1,5 +1,5 @@
 ---
-question: How does this work exactly?
+question: How does the Mahaana VPS Takaful coverage work exactly?
 answer: >
   Every deposit you make into your Mahaana VPS account automatically builds your
   life insurance coverage. Each deposit gives you coverage equal to 2× your

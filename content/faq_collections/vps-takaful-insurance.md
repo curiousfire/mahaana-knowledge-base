@@ -1,5 +1,5 @@
 ---
-name: VPS Takaful / Insurance
+name: Mahaana VPS Life Takaful (Insurance)
 folder: vpstakaful
 description: Shariah-compliant life Takaful coverage bundled with Mahaana VPS
   deposits. Covers enrollment, coverage rules, cooling-off period, claims, fees,

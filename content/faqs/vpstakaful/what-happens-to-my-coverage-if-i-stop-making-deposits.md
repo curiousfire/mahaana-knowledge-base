@@ -1,5 +1,5 @@
 ---
-question: What happens to my coverage if I stop making deposits?
+question: What happens to my VPS Takaful coverage if I stop making deposits?
 answer: >
   Your existing coverage stays active for 12 months from each deposit date —
   even if you stop depositing. Coverage reduces gradually as each deposit

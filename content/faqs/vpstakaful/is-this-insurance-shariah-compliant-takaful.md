@@ -1,5 +1,5 @@
 ---
-question: Is this insurance Shariah-compliant (Takaful)?
+question: Is the VPS Takaful insurance Shariah-compliant?
 answer: >
   Yes, your life coverage is fully Shariah-compliant. It is provided under a
   Takaful model by IGI Life Window Takaful Limited, which operates a dedicated

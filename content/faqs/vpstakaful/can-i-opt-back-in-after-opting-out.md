@@ -1,5 +1,5 @@
 ---
-question: Can I opt back in (enable) after opting out (disable)?
+question: Can I opt back in to VPS Takaful after opting out?
 answer: >
   Yes. You can re-enrol anytime from Settings → Insurance. If you re-enrol
   within 3 months of opting out, no new health questions and no cooling-off
