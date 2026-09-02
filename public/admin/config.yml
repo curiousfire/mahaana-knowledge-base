@@ -37,6 +37,19 @@ collections:
       - label: Answer
         name: answer
         widget: text
+  - name: fees_faqs
+    label: Fees FAQs
+    folder: content/faqs/fees
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
   - name: gettingstarted_faqs
     label: Getting Started FAQs
     folder: content/faqs/gettingstarted
@@ -89,6 +102,32 @@ collections:
       - label: Answer
         name: answer
         widget: text
+  - name: Mahaana Islamic Gold Fund_faqs
+    label: Mahaana Islamic Gold Fund FAQs
+    folder: content/faqs/Mahaana Islamic Gold Fund
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: mahaana_retirement_faqs
+    label: Mahaana Retirement FAQs
+    folder: content/faqs/mahaana_retirement
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
   - name: mahaanaretirement_faqs
     label: Mahaana Retirement FAQs
     folder: content/faqs/mahaanaretirement
@@ -115,9 +154,48 @@ collections:
       - label: Answer
         name: answer
         widget: text
+  - name: MicfDividend_faqs
+    label: Micf Dividend FAQs
+    folder: content/faqs/MicfDividend
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: miscellaneous_faqs
+    label: Miscellaneous FAQs
+    folder: content/faqs/miscellaneous
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
   - name: returnsandperformance_faqs
     label: Returns & Performance FAQs
     folder: content/faqs/returnsandperformance
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: save+_pots_faqs
+    label: Save+ Pots FAQs
+    folder: content/faqs/save+_pots
     create: true
     slug: '{{slug}}'
     identifier_field: question
@@ -170,6 +248,32 @@ collections:
   - name: technologyandccess_faqs
     label: ' Technology & Access FAQs'
     folder: content/faqs/technologyandccess
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: things_to_update_faqs
+    label: Things to update FAQs
+    folder: content/faqs/things_to_update
+    create: true
+    slug: '{{slug}}'
+    identifier_field: question
+    fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+  - name: Mahaana VPS Life Takaful (Insurance)_faqs
+    label: Mahaana VPS Life Takaful (Insurance) FAQs
+    folder: content/faqs/Mahaana VPS Life Takaful (Insurance)
     create: true
     slug: '{{slug}}'
     identifier_field: question
