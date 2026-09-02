@@ -4,11 +4,13 @@
   "scripts": {
     "update-collections": "node scripts/update-collections.js",
     "generate-faq": "node scripts/generate-faq.js",
-    "build": "npm run update-collections && npm run generate-faq"
+    "generate-pages": "node scripts/generate-pages.js",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "build": "npm run update-collections && npm run generate-faq && npm run generate-pages && npm run generate-sitemap"
   },
   "dependencies": {
-  "gray-matter": "^4.0.3",
-  "js-yaml": "^4.1.0",
-  "@babel/compat-data": "^7.22.9"
-}
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "@babel/compat-data": "^7.22.9"
+  }
 }
