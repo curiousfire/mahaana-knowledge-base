@@ -16,6 +16,9 @@ answer: >
   fund's value a little each day, so the price you see in the app is already net
   of it.
 
-  Nothing else is charged. There is no account fee, no custody fee billed to you
-  separately, and no charge for holding.
+  Nothing else is charged by Mahaana. There is no account fee, no custody fee
+  billed to you separately, and no charge for holding.
+
+  Separately from these charges, Capital Gains Tax of 15% applies on your gain
+  when you withdraw. That is a government tax, not a Mahaana charge.
 ---
