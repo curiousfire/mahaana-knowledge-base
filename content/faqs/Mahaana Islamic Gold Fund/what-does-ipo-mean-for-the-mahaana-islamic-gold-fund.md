@@ -1,9 +1,11 @@
 ---
 question: What does IPO mean for the Mahaana Islamic Gold Fund?
 answer: >
-  IPO stands for initial public offering. It is the first window in which the
-  fund takes in money from the public. Everyone who invests during the window
-  gets in at the same starting price, and the fund buys its first gold with the
-  money collected. After the window closes, the fund opens for normal daily
-  buying and selling.
+  IPO stands for initial public offering. It was the first week in which the
+  fund took in money from the public. Everyone who invested during that window
+  got in at the same starting price of Rs 10, and the fund bought its first gold
+  with the money collected.
+
+  That window closed on 10 September 2026. Since then the fund has been open for
+  normal daily buying and selling, at the unit price of the day.
 ---

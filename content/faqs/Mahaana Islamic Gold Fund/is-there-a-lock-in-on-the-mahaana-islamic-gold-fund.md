@@ -1,10 +1,9 @@
 ---
 question: Is there a lock in on the Mahaana Islamic Gold Fund?
 answer: >
-  No. You can sell on any working day once the fund opens for daily dealing, and
-  no one can stop you taking your money out.
+  No. You can sell on any working day and there is no minimum holding period.
 
-  There is one charge to be aware of, and it is not a lock in. If you withdraw a
-  deposit within 30 days of making it, a 1.5% back end load applies to that
-  deposit. After 30 days it does not.
+  One thing to note. If you withdraw a deposit within 30 days of making it, a
+  back end load of 1.5% applies to that deposit. This is a charge, not a lock
+  in. You are free to sell whenever you want.
 ---
