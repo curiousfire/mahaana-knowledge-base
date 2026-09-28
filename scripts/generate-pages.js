@@ -18,11 +18,13 @@ const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
 const { siteUrl } = require("./site-url");
+const { lastCommitDates } = require("./git-dates");
 
 const PUBLIC_DIR = path.join(__dirname, "../public");
 const FAQ_JSON = path.join(PUBLIC_DIR, "faq.json");
 const COLLECTIONS_DIR = path.join(__dirname, "../content/faq_collections");
 const OUT_ROOT = path.join(PUBLIC_DIR, "faq");
+const CACHE_DIR = path.join(__dirname, "../.cache");
 
 const SITE_NAME = "Mahaana Knowledge Base";
 const BASE_URL = siteUrl();
@@ -160,6 +162,17 @@ if (!faqs.length) {
   process.exit(1);
 }
 
+// Last-edited date per FAQ (same order as faq.json), written by generate-faq.js.
+// Optional: without it the sitemap falls back to the build date.
+let updated = [];
+try {
+  updated = JSON.parse(fs.readFileSync(path.join(CACHE_DIR, "faq-updated.json"), "utf8"));
+  if (!Array.isArray(updated) || updated.length !== faqs.length) updated = [];
+} catch (err) {
+  updated = [];
+}
+const collectionDates = lastCommitDates(COLLECTIONS_DIR);
+
 // folder -> pretty label, taken from the collection definitions
 const labels = {};
 if (fs.existsSync(COLLECTIONS_DIR)) {
@@ -168,6 +181,7 @@ if (fs.existsSync(COLLECTIONS_DIR)) {
     const { data } = matter(fs.readFileSync(path.join(COLLECTIONS_DIR, file), "utf8"));
     if (data.folder && data.name) {
       labels[data.folder] = {
+        updated: collectionDates.get(path.join(COLLECTIONS_DIR, file)) || null,
         name: String(data.name).trim(),
         description: String(data.description || "").replace(/\s+/g, " ").trim(),
       };
@@ -180,7 +194,7 @@ if (fs.existsSync(COLLECTIONS_DIR)) {
 const collisions = [];
 const categories = new Map();
 
-for (const faq of faqs) {
+for (const [index, faq] of faqs.entries()) {
   const folder = faq.category || "General";
   const catSlug = slugify(folder);
 
@@ -191,6 +205,7 @@ for (const faq of faqs) {
       slug: catSlug,
       label: meta.name || folder,
       description: meta.description || "",
+      updated: meta.updated || null,
       items: [],
       seen: new Set(),
     });
@@ -213,6 +228,7 @@ for (const faq of faqs) {
     answer: faq.answer,
     slug: slug,
     url: "/faq/" + catSlug + "/" + slug + "/",
+    updated: updated[index] || null,
   });
 }
 
@@ -339,6 +355,28 @@ write(
     body: indexBody,
   })
 );
+
+// ---------------------------------------------------------------- lastmod manifest
+
+// URL path -> last-edited date, for generate-sitemap.js. A listing page changes
+// whenever anything on it does, so it takes the newest date among its FAQs.
+// Pages with no known date are left out and the sitemap falls back for them.
+const newest = (dates) => dates.filter(Boolean).sort().pop() || null;
+const lastmod = {};
+for (const cat of allCategories) {
+  for (const item of cat.items) {
+    if (item.updated) lastmod[item.url] = item.updated;
+  }
+  const catDate = newest([cat.updated].concat(cat.items.map((i) => i.updated)));
+  if (catDate) lastmod["/faq/" + cat.slug + "/"] = catDate;
+}
+const allDate = newest(Object.values(lastmod));
+if (allDate) {
+  lastmod["/faq/"] = allDate;
+  lastmod["/"] = allDate; // the SPA at "/" renders every FAQ from faq.json
+}
+fs.mkdirSync(CACHE_DIR, { recursive: true });
+fs.writeFileSync(path.join(CACHE_DIR, "page-lastmod.json"), JSON.stringify(lastmod, null, 2), "utf8");
 
 // ---------------------------------------------------------------- report
 

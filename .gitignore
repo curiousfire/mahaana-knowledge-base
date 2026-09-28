@@ -4,3 +4,6 @@ public/faq.json
 public/faq/
 public/sitemap.xml
 public/robots.txt
+
+# Intermediate build data (last-edited dates) passed between build scripts.
+.cache/

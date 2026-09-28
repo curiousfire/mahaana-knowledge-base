@@ -62,10 +62,19 @@ if (!fs.existsSync(PUBLIC_DIR)) {
 
 const baseUrl = siteUrl();
 
+// Real last-edited dates from generate-pages.js. Any page missing from it
+// (or the whole file, if that step didn't write one) falls back to file mtime.
+let lastmod = {};
+try {
+  lastmod = JSON.parse(fs.readFileSync(path.join(__dirname, "../.cache/page-lastmod.json"), "utf8"));
+} catch (err) {
+  console.warn("⚠️  No .cache/page-lastmod.json; using build date for every <lastmod>.");
+}
+
 const entries = collectHtml(PUBLIC_DIR)
   .map((file) => ({
     loc: baseUrl + toUrlPath(file),
-    lastmod: fs.statSync(file).mtime.toISOString().slice(0, 10),
+    lastmod: lastmod[toUrlPath(file)] || fs.statSync(file).mtime.toISOString().slice(0, 10),
     // "/" first, then shallower paths, then alphabetical - keeps the file readable.
     sortKey: toUrlPath(file),
   }))
