@@ -9,5 +9,5 @@ answer: >
   On 20 October you withdraw Rs 25,000. Your oldest money comes out first, so
   the first Rs 20,000 comes from your 5 October deposit and is exempt. The
   remaining Rs 5,000 comes from your 14 October deposit, which is only 6 days
-  old, so 1% applies to it. Your early exit charge is Rs 50.
+  old, so 1.5% applies to it. Your early exit charge is Rs 75.
 ---

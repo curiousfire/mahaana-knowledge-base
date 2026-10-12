@@ -6,6 +6,6 @@ answer: >
   lock in.
 
   One thing to know. From 12 October 2026, money withdrawn within 30 days of
-  being deposited carries a 1% early exit charge. Money you have held for 30
+  being deposited carries a 1.5% early exit charge. Money you have held for 30
   days or more is withdrawn free.
 ---

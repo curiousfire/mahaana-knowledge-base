@@ -7,6 +7,6 @@ answer: >
   regular bank account.
 
   One thing to know. From 12 October 2026, money withdrawn within 30 days of
-  being deposited carries a 1% early exit charge. After 30 days, withdrawals
+  being deposited carries a 1.5% early exit charge. After 30 days, withdrawals
   are free.
 ---

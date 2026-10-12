@@ -10,6 +10,6 @@ answer: >
   bank charge, and it is remitted directly to the government.
 
   Early exit charge. From 12 October 2026, money withdrawn within 30 days of
-  being deposited carries a 1% early exit charge. Money deposited before 12
+  being deposited carries a 1.5% early exit charge. Money deposited before 12
   October, or held for 30 days or more, is not charged.
 ---

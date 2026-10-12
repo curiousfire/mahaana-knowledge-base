@@ -11,6 +11,6 @@ answer: >
   deducted.
 
   Early exit charge. From 12 October 2026, money withdrawn within 30 days of
-  being deposited carries a 1% early exit charge. Money held for 30 days or more
+  being deposited carries a 1.5% early exit charge. Money held for 30 days or more
   is not charged.
 ---
