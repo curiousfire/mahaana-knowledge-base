@@ -1,5 +1,9 @@
 ---
-question: Do you have any frontend or backend load balancers in Mahaana Save +/MICF?
-answer: No, we don't have any frontend or backend load balancers in Mahaana Save
-  +/MICF  or any other product.
+question: Do you have any frontend or backend loads in Mahaana Save+/MICF?
+answer: >
+  Mahaana Save+ has no front end load.
+
+  From Monday 12 October 2026, money withdrawn within 30 days of being deposited
+  carries a 1% early exit charge. After 30 days, withdrawals are free. The same
+  applies to Mahaana Retirement (VPS).
 ---
